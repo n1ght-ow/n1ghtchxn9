@@ -5,50 +5,42 @@
   "use strict";
 
   /* ---------- Photo data ----------
-     Swap these for your real photos later:
-     replace `src` with a path like "photos/my-shot.jpg".
+     Real shots live in the /photos folder.
+     `src` is the file path; the same file is used for the lightbox.
      `size` controls layout: "" (default), "wide", or "tall".
+     Four "wide" + seven default cards tile the 12-col grid exactly.
   */
   const PHOTOS = [
-    { title: "晨雾中的山谷",   cat: "mountain", tag: "MOUNTAIN", seed: "misty-valley-01", size: "wide" },
-    { title: "海边的日出",     cat: "sea",      tag: "OCEAN",    seed: "sea-sunrise-02", size: "tall" },
-    { title: "松林小径",       cat: "forest",   tag: "FOREST",   seed: "pine-path-03",   size: "" },
-    { title: "云海之上",       cat: "mountain", tag: "MOUNTAIN", seed: "cloud-sea-04",   size: "" },
-    { title: "金色麦田",       cat: "field",    tag: "FIELD",    seed: "wheat-05",       size: "wide" },
-    { title: "潮汐与礁石",     cat: "sea",      tag: "OCEAN",    seed: "tide-rocks-06",  size: "" },
-    { title: "薄雾森林",       cat: "forest",   tag: "FOREST",   seed: "foggy-woods-07", size: "tall" },
-    { title: "雪山之巅",       cat: "mountain", tag: "MOUNTAIN", seed: "snow-peak-08",   size: "" },
-    { title: "静谧的湖面",     cat: "sea",      tag: "OCEAN",    seed: "calm-lake-09",   size: "" },
-    { title: "蓝天与白云",     cat: "sky",      tag: "SKY",      seed: "blue-sky-10",    size: "" },
-    { title: "秋天的白桦",     cat: "forest",   tag: "FOREST",   seed: "autumn-birch-11", size: "tall" },
-    { title: "黄昏的天空",     cat: "sky",      tag: "SKY",      seed: "dusk-sky-12",    size: "wide" },
-    { title: "花海漫漫",       cat: "field",    tag: "FIELD",    seed: "flower-field-13", size: "" },
-    { title: "星空下的山脊",   cat: "sky",      tag: "SKY",      seed: "starry-ridge-14", size: "" },
-    { title: "层层梯田",       cat: "field",    tag: "FIELD",    seed: "terrace-15",     size: "" },
+    { title: "黑白树影",   cat: "tree",   tag: "TREE",   src: "photos/1779456446198.jpg",         size: "wide" },
+    { title: "山茱萸",         cat: "flower",     tag: "FLOWER",     src: "photos/1779456446218.jpg",         size: "" },
+    { title: "杏花坠入蓝色梦境",       cat: "flower",      tag: "FLOWER",      src: "photos/1779456446227.jpg",         size: "" },
+    { title: "玉兰借晴空呼吸",         cat: "flower",     tag: "FLOWER",     src: "photos/1779456446231.jpg",         size: "wide" },
+    { title: "逆光里未开的春天",           cat: "flower", tag: "FLOWER", src: "photos/1779456446240.jpg",         size: "" },
+    { title: "一枝杏花挑起晴空",         cat: "flower",   tag: "FLOWER",   src: "photos/1779456446245.jpg",         size: "" },
+    { title: "玉兰把光揉成雪",           cat: "flower",     tag: "FLOWER",     src: "photos/1779456446248.jpg",         size: "" },
+    { title: "草原尽头云在生长",           cat: "sky",      tag: "SKY",      src: "photos/SAVE_20260616_234154.jpg",  size: "wide" },
+    { title: "风从云城吹过草原",         cat: "sky",      tag: "SKY",      src: "photos/SAVE_20260616_234224.jpg",  size: "" },
+    { title: "山坡托起一座白云",       cat: "sky",      tag: "SKY",      src: "photos/SAVE_20260616_234337.jpg",  size: "" },
+    { title: "远山慢慢化成云海",     cat: "sky",      tag: "SKY",      src: "photos/SAVE_20260616_234423.jpg",  size: "wide" },
   ];
-
-  const imgUrl = (seed, w, h) => `https://picsum.photos/seed/${seed}/${w}/${h}`;
 
   /* ---------- Build gallery ---------- */
   const gallery = document.getElementById("gallery");
   const built = PHOTOS.map((p, i) => {
     const sizeClass = p.size === "wide" ? "card--wide" : p.size === "tall" ? "card--tall" : "";
-    const dims = p.size === "wide" ? [1200, 750] : p.size === "tall" ? [700, 1100] : [800, 1000];
-    const src = imgUrl(p.seed, dims[0], dims[1]);
-    const full = imgUrl(p.seed, 1600, Math.round(1600 * dims[1] / dims[0]));
     const el = document.createElement("article");
     el.className = `card ${sizeClass}`.trim();
     el.dataset.cat = p.cat;
     el.dataset.index = i;
     el.setAttribute("data-cursor", "hover");
     el.innerHTML = `
-      <img src="${src}" alt="${p.title}" loading="lazy" />
+      <img src="${p.src}" alt="${p.title}" loading="lazy" />
       <div class="card__plus">+</div>
       <div class="card__overlay">
         <span class="card__cat">${p.tag}</span>
         <span class="card__title">${p.title}</span>
       </div>`;
-    el._full = full;
+    el._full = p.src;
     gallery.appendChild(el);
     return el;
   });
