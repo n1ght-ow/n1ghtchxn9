@@ -26,20 +26,23 @@
 
   /* ---------- Build gallery ---------- */
   const gallery = document.getElementById("gallery");
+  // photos/foo.jpg -> photos/web/foo-thumb.jpg | photos/web/foo-display.jpg
+  const webImg = (src, kind) =>
+    `photos/web/${src.replace(/^photos\//, "").replace(/\.[^.]+$/, "")}-${kind}.jpg`;
   const built = PHOTOS.map((p, i) => {
     const sizeClass = p.size === "wide" ? "card--wide" : p.size === "tall" ? "card--tall" : "";
     const el = document.createElement("article");
     el.className = `card ${sizeClass}`.trim();
     el.dataset.cat = p.cat;
     el.dataset.index = i;
-    el.setAttribute("data-cursor", "hover");
     el.innerHTML = `
-      <img src="${p.src}" alt="${p.title}" loading="lazy" />
+      <img src="${webImg(p.src, "thumb")}" alt="${p.title}" loading="lazy" />
       <div class="card__plus">+</div>
       <div class="card__overlay">
         <span class="card__cat">${p.tag}</span>
         <span class="card__title">${p.title}</span>
       </div>`;
+    el._display = webImg(p.src, "display");
     el._full = p.src;
     gallery.appendChild(el);
     return el;
@@ -92,6 +95,7 @@
   const lbTitle = document.getElementById("lbTitle");
   const lbCat = document.getElementById("lbCat");
   const lbCount = document.getElementById("lbCount");
+  const lbOriginal = document.getElementById("lbOriginal");
   let current = 0;
 
   const visibleCards = () => built.filter((c) => !c.classList.contains("is-hidden"));
@@ -100,17 +104,25 @@
     const list = visibleCards();
     current = list.indexOf(card);
     renderLightbox(list);
-    lb.classList.add("is-open");
     document.body.style.overflow = "hidden";
+    lbImg.style.opacity = "1";
+    // Decode the (large) image first so it fades in already painted,
+    // instead of popping in partway through the open animation.
+    const reveal = () => lb.classList.add("is-open");
+    lbImg.decode ? lbImg.decode().then(reveal).catch(reveal) : reveal();
   }
   function renderLightbox(list) {
     const card = list[current];
     const p = PHOTOS[Number(card.dataset.index)];
-    lbImg.src = card._full;
+    lbImg.src = card._display;
     lbImg.alt = p.title;
     lbTitle.textContent = p.title;
     lbCat.textContent = p.tag;
     lbCount.textContent = `${String(current + 1).padStart(2, "0")} / ${String(list.length).padStart(2, "0")}`;
+    lbOriginal.dataset.full = card._full;
+    lbOriginal.textContent = "查看原图";
+    lbOriginal.disabled = false;
+    lbOriginal.hidden = false;
   }
   function step(dir) {
     const list = visibleCards();
@@ -130,6 +142,16 @@
   document.getElementById("lbClose").addEventListener("click", closeLightbox);
   document.getElementById("lbNext").addEventListener("click", () => step(1));
   document.getElementById("lbPrev").addEventListener("click", () => step(-1));
+  lbOriginal.addEventListener("click", () => {
+    const full = lbOriginal.dataset.full;
+    if (!full) return;
+    lbOriginal.disabled = true;
+    lbOriginal.textContent = "原图加载中…";
+    const hi = new Image();
+    hi.onload = () => { lbImg.src = full; lbOriginal.hidden = true; };
+    hi.onerror = () => { lbOriginal.textContent = "加载失败，重试"; lbOriginal.disabled = false; };
+    hi.src = full;
+  });
   lb.addEventListener("click", (e) => { if (e.target === lb) closeLightbox(); });
   document.addEventListener("keydown", (e) => {
     if (!lb.classList.contains("is-open")) return;
@@ -164,29 +186,6 @@
     });
   }, { threshold: 0.6 });
   counters.forEach((c) => counterIO.observe(c));
-
-  /* ---------- Custom cursor ---------- */
-  const cursor = document.getElementById("cursor");
-  const dot = document.getElementById("cursorDot");
-  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    let cx = 0, cy = 0, tx = 0, ty = 0;
-    window.addEventListener("mousemove", (e) => {
-      tx = e.clientX; ty = e.clientY;
-      dot.style.transform = `translate(${tx}px, ${ty}px) translate(-50%, -50%)`;
-    });
-    const loop = () => {
-      cx += (tx - cx) * 0.18; cy += (ty - cy) * 0.18;
-      cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
-      requestAnimationFrame(loop);
-    };
-    loop();
-    document.addEventListener("mouseover", (e) => {
-      if (e.target.closest('[data-cursor="hover"], a, button, .card')) cursor.classList.add("is-hover");
-    });
-    document.addEventListener("mouseout", (e) => {
-      if (e.target.closest('[data-cursor="hover"], a, button, .card')) cursor.classList.remove("is-hover");
-    });
-  }
 
   /* ---------- Hero parallax ---------- */
   const heroTitle = document.querySelector(".hero__title");
