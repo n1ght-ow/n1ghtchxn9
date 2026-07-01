@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="N1GHT CHXN9 — 风景摄影作品集 / Landscape photography portfolio" />
+  <title>N1GHT CHXN9 · 风景摄影作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Loader ===== -->
+  <div class="loader" id="loader">
+    <div class="loader__logo">
+      <span>N1GHT</span>
+      <span>CHXN9</span>
+    </div>
+    <div class="loader__bar"><span id="loaderBar"></span></div>
+    <div class="loader__pct" id="loaderPct">0%</div>
+  </div>
+
+  <!-- ===== Custom cursor ===== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ===== Ambient FX ===== -->
+  <div class="aurora">
+    <span class="aurora__blob aurora__blob--1"></span>
+    <span class="aurora__blob aurora__blob--2"></span>
+    <span class="aurora__blob aurora__blob--3"></span>
+  </div>
+  <div class="grid-overlay"></div>
+  <div class="grain"></div>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav__brand" data-cursor="hover">
+      <span class="nav__brand-mark">N1</span>GHT CHXN9
+    </a>
+    <nav class="nav__links">
+      <a href="#home" data-cursor="hover">首页</a>
+      <a href="#about" data-cursor="hover">关于</a>
+      <a href="#work" data-cursor="hover">作品</a>
+      <a href="#contact" data-cursor="hover">联系</a>
+    </nav>
+    <button class="nav__burger" id="burger" aria-label="menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="home">
+    <div class="hero__label reveal">
+      <span class="dot"></span> 漫步 · 风景 · 自然光 · SINCE 2019
+    </div>
+    <h1 class="hero__title">
+      <span class="line">N1GHT</span>
+      <span class="line line--accent">CHXN9</span>
+    </h1>
+    <p class="hero__sub reveal">
+      背上相机就出发 — 把山川湖海、清晨的薄雾和温柔的日落,都收进画面里。<br />
+      Chasing gentle light across mountains, seas and quiet mornings.
+    </p>
+    <div class="hero__cta reveal">
+      <a href="#work" class="btn btn--primary" data-cursor="hover">看看风景 <i>→</i></a>
+      <a href="#contact" class="btn btn--ghost" data-cursor="hover">合作联系</a>
+    </div>
+    <div class="hero__scroll">
+      <span>SCROLL</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+    <div class="hero__marquee">
+      <div class="marquee__track">
+        <span>MOUNTAINS ✦ OCEAN ✦ FOREST ✦ SUNRISE ✦ TRAVEL ✦ GOLDEN HOUR ✦</span>
+        <span>MOUNTAINS ✦ OCEAN ✦ FOREST ✦ SUNRISE ✦ TRAVEL ✦ GOLDEN HOUR ✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="about" id="about">
+    <div class="about__grid">
+      <div class="about__media reveal">
+        <img src="https://picsum.photos/seed/chxn9travel/720/900" alt="photographer on a trip" loading="lazy" />
+        <div class="about__media-glow"></div>
+      </div>
+      <div class="about__text">
+        <span class="section-tag reveal">// 关于我</span>
+        <h2 class="section-title reveal">我把走过的<br /><em>好风景</em>都留下来。</h2>
+        <p class="reveal">
+          我是 N1GHT CHXN9 —— 一个喜欢到处走走、随手记录风景的人。没有太多讲究,
+          看到让我停下脚步的画面就按下快门:一片云、一道山脊、海浪退去后的沙滩,还有黄昏时最舒服的那束光。
+        </p>
+        <p class="reveal">
+          拍照对我来说更像是散步的副产品。这里是我这些年在路上收集到的一些风景,
+          希望你看的时候也能放松下来,像是跟我一起走了一趟。
+        </p>
+        <div class="about__stats">
+          <div class="stat reveal"><b data-count="1200">0</b><span>张 · 风景收藏</span></div>
+          <div class="stat reveal"><b data-count="48">0</b><span>走过的地方</span></div>
+          <div class="stat reveal"><b data-count="7">0</b><span>年 · 一直在路上</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Work / Portfolio ===== -->
+  <section class="work" id="work">
+    <div class="work__head">
+      <span class="section-tag reveal">// 风景相册</span>
+      <h2 class="section-title reveal">精选 <em>风景</em></h2>
+      <div class="filters reveal" id="filters">
+        <button class="filter is-active" data-filter="all" data-cursor="hover">全部</button>
+        <button class="filter" data-filter="mountain" data-cursor="hover">山峦</button>
+        <button class="filter" data-filter="sea" data-cursor="hover">海岸</button>
+        <button class="filter" data-filter="forest" data-cursor="hover">森林</button>
+        <button class="filter" data-filter="sky" data-cursor="hover">天空</button>
+        <button class="filter" data-filter="field" data-cursor="hover">田野</button>
+      </div>
+    </div>
+    <div class="gallery" id="gallery"><!-- injected by JS --></div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="contact" id="contact">
+    <div class="contact__inner">
+      <span class="section-tag reveal">// 一起出发</span>
+      <h2 class="contact__title reveal">一起去<br /><em>看看风景</em>吧。</h2>
+      <p class="reveal">约拍 · 旅行随行 · 风景展览合作 — 随时给我留言。</p>
+      <a href="mailto:hello@nightchxn9.com" class="contact__mail reveal" data-cursor="hover">hello@nightchxn9.com</a>
+      <div class="contact__socials reveal">
+        <a href="#" data-cursor="hover">Instagram</a>
+        <a href="#" data-cursor="hover">小红书</a>
+        <a href="#" data-cursor="hover">Behance</a>
+        <a href="#" data-cursor="hover">500px</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <span>© <span id="year"></span> N1GHT CHXN9</span>
+    <span>Chasing light, one view at a time · 为热爱风景的人而拍</span>
+    <a href="#home" data-cursor="hover">回到顶部 ↑</a>
+  </footer>
+
+  <!-- ===== Lightbox ===== -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lbClose" aria-label="close">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="prev">‹</button>
+    <div class="lightbox__stage">
+      <img id="lbImg" src="" alt="" />
+      <div class="lightbox__meta">
+        <h3 id="lbTitle"></h3>
+        <p id="lbCat"></p>
+      </div>
+    </div>
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="next">›</button>
+    <div class="lightbox__count" id="lbCount"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
