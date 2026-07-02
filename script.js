@@ -128,7 +128,13 @@
     const list = visibleCards();
     current = (current + dir + list.length) % list.length;
     lbImg.style.opacity = "0";
-    setTimeout(() => { renderLightbox(list); lbImg.style.opacity = "1"; }, 150);
+    setTimeout(() => {
+      renderLightbox(list);
+      // Wait for the new image to decode before fading in; otherwise the
+      // <img> repaints the previous (still-decoded) photo for a frame.
+      const reveal = () => { lbImg.style.opacity = "1"; };
+      lbImg.decode ? lbImg.decode().then(reveal).catch(reveal) : reveal();
+    }, 150);
   }
   function closeLightbox() {
     lb.classList.remove("is-open");
