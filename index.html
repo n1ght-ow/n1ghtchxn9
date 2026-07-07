@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="N1GHT CHXN9 — hyper visual photo archive / a high-energy visual experiment" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="N1GHT CHXN9 · a hyper visual photo archive and high-energy visual experiment" />
+  <meta name="theme-color" content="#0a0a0b" />
   <meta property="og:title" content="N1GHT CHXN9 · Hyper Visual Archive" />
   <meta property="og:description" content="A high-energy visual experiment built from a small photo archive." />
   <meta property="og:image" content="photos/web/SAVE_20260616_234423-display.jpg" />
   <title>N1GHT CHXN9 · Hyper Visual Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Major+Mono+Display&family=Unbounded:wght@500;700&family=Space+Mono:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Bungee+Shade&family=Cinzel+Decorative:wght@700;900&family=Abril+Fatface&family=Yeseva+One&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Castoro:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600;800&family=Cabin:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;700&family=Archivo+Black&family=Anton&family=Bebas+Neue&family=Archivo:wght@500;700&family=Syne:wght@700;800&family=Cormorant:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&family=DM+Mono:ital,wght@0,400;0,500&family=IBM+Plex+Mono:wght@400;600&family=Cousine:wght@400;700&family=Anonymous+Pro:wght@400;700&family=Caesar+Dressing&family=Monoton&family=Climate+Crisis&family=Tilt+Prism&family=Goldman:wght@700;900&family=Big+Shoulders+Display:wght@900&family=Bowlby+One&family=Stalinist+One&family=Nixie+One&family=VT323&family=Iceland&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="photos/web/SAVE_20260616_234423-display.jpg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -28,18 +28,6 @@
     <div class="loader__pct" id="loaderPct">0%</div>
   </div>
 
-  <!-- ===== Ambient FX ===== -->
-  <div class="fx" aria-hidden="true">
-    <div class="fx__spotlight"></div>
-    <div class="fx__prism"></div>
-    <div class="fx__rays"></div>
-    <div class="fx__halo"></div>
-    <div class="fx__particles"></div>
-  </div>
-  <div class="grid-overlay"></div>
-  <div class="grain"></div>
-  <div class="scanline" aria-hidden="true"></div>
-
   <!-- ===== Nav ===== -->
   <header class="nav" id="nav">
     <a href="#home" class="nav__brand" data-cursor="hover">
@@ -51,7 +39,6 @@
       <a href="#work" data-cursor="hover">Work</a>
       <a href="#contact" data-cursor="hover">Contact</a>
     </nav>
-    <div class="nav__status"><span></span> LIVE</div>
     <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span>
     </button>
@@ -61,68 +48,39 @@
   <section class="hero" id="home">
     <div class="hero__copy">
       <div class="hero__label reveal">
-        <span class="dot"></span> HYPER VISUAL ARCHIVE · 2026
+        HYPER VISUAL ARCHIVE · 2026
       </div>
-      <h1 class="hero__title" data-glitch="N1GHT CHXN9">
+      <h1 class="hero__title">
         <span class="line">N1GHT</span>
         <span class="line line--accent">CHXN9</span>
       </h1>
       <p class="hero__sub reveal">
-        The photos on hand are only fuel. Landscape, flowers, clouds and light
-        are fed into a night-colored engine, leaving behind bright, sharp,
-        endlessly drifting echoes.
+        Photos are only fuel. Landscape, flowers and light feed a
+        night-colored engine, leaving bright, drifting echoes.
       </p>
       <div class="hero__cta reveal">
         <a href="#work" class="btn btn--primary" data-cursor="hover">Enter the light field <i>→</i></a>
         <a href="#contact" class="btn btn--ghost" data-cursor="hover">Send a signal</a>
       </div>
-      <div class="hero__metrics reveal" aria-label="visual metrics">
-        <span><b>09</b> CHROMA</span>
-        <span><b>11</b> FRAMES</span>
-        <span><b>∞</b> DRIFT</span>
-      </div>
     </div>
     <div class="hero__visual reveal" aria-label="N1GHT CHXN9 visual stage">
-      <div class="hero__orbital hero__orbital--outer"></div>
-      <div class="hero__orbital hero__orbital--inner"></div>
-      <div class="hero__burst"></div>
-      <div class="hero__frame hero__frame--back" data-depth="-18">
+      <div class="hero__frame hero__frame--back">
         <img src="photos/web/1779456446248-display.jpg" alt="Magnolia kneading light into snow" />
       </div>
-      <div class="hero__frame hero__frame--main" data-depth="30">
+      <div class="hero__frame hero__frame--main">
         <img src="photos/web/SAVE_20260616_234423-display.jpg" alt="Distant mountains slowly dissolving into a sea of clouds" />
       </div>
-      <div class="hero__frame hero__frame--side" data-depth="46">
+      <div class="hero__frame hero__frame--side">
         <img src="photos/web/1779456446227-display.jpg" alt="Apricot blossoms falling into a blue dream" />
       </div>
-      <div class="hero__scanner"></div>
-      <div class="hero__hud hero__hud--top">SIGNAL: LUMEN_09</div>
-      <div class="hero__hud hero__hud--bottom">FIELD: NOCTURNE / OPEN</div>
-      <div class="hero__slice hero__slice--cyan"></div>
-      <div class="hero__slice hero__slice--coral"></div>
-      <div class="hero__data-rain">
-        <span>001101</span><span>LUMEN</span><span>RGB</span><span>SCAN</span><span>CHXN9</span>
-      </div>
-    </div>
-    <div class="hero__scroll">
-      <span>SCROLL</span>
-      <div class="hero__scroll-line"></div>
     </div>
   </section>
-
-  <div class="kinetic-strip" aria-hidden="true">
-    <div>
-      LIGHT RUNNER · CHROMA DRIFT · RAW SKY · ELECTRIC BLOOM · AFTERIMAGE ·
-      LIGHT RUNNER · CHROMA DRIFT · RAW SKY · ELECTRIC BLOOM · AFTERIMAGE ·
-    </div>
-  </div>
 
   <!-- ===== About ===== -->
   <section class="about" id="about">
     <div class="about__grid">
       <div class="about__media reveal">
         <img src="photos/web/1779456446227-display.jpg" alt="Apricot blossoms falling into a blue dream" loading="lazy" />
-        <div class="about__media-glow"></div>
       </div>
       <div class="about__text">
         <span class="section-tag reveal">// about this interface</span>
@@ -138,9 +96,9 @@
           beautiful, overloaded signal.
         </p>
         <div class="about__stats">
-          <div class="stat reveal"><b data-count="100">0</b><span>LIGHT UNITS</span></div>
-          <div class="stat reveal"><b data-count="20">0</b><span>FIELD NODES</span></div>
-          <div class="stat reveal"><b data-count="4">0</b><span>VISUAL MODES</span></div>
+          <div class="stat reveal"><b data-count="11">0</b><span>FRAMES</span></div>
+          <div class="stat reveal"><b data-count="3">0</b><span>STREAMS</span></div>
+          <div class="stat reveal"><b data-count="1">0</b><span>ARCHIVE</span></div>
         </div>
       </div>
     </div>
@@ -166,7 +124,7 @@
     <div class="contact__inner">
       <span class="section-tag reveal">// SIGNAL</span>
       <h2 class="contact__title reveal">Light up the next<br /><em>visual experiment</em>.</h2>
-      <p class="reveal">Image pages · creative showcases · visual packaging · collab experiments — leave me a note anytime.</p>
+      <p class="reveal">Image pages, creative showcases, visual packaging and collab experiments. Leave a note anytime.</p>
       <span class="contact__mail reveal">n1ghtchxn9@gmail.com</span>
       <div class="contact__socials reveal">
         <a href="https://x.com/n1ghtchxn9" target="_blank" rel="noopener noreferrer" data-cursor="hover">X</a>

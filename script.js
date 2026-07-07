@@ -7,18 +7,6 @@
   const root = document.documentElement;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Pointer light field ---------- */
-  if (!reduceMotion) {
-    window.addEventListener("pointermove", (e) => {
-      const nx = e.clientX / window.innerWidth - 0.5;
-      const ny = e.clientY / window.innerHeight - 0.5;
-      root.style.setProperty("--mx", `${e.clientX}px`);
-      root.style.setProperty("--my", `${e.clientY}px`);
-      root.style.setProperty("--tilt-x", nx.toFixed(3));
-      root.style.setProperty("--tilt-y", ny.toFixed(3));
-    }, { passive: true });
-  }
-
   /* ---------- Photo data ----------
      Real shots live in the /photos folder.
      `src` is the original file path.
@@ -49,50 +37,6 @@
   const webImg = (src, kind) =>
     `photos/web/${src.replace(/^photos\//, "").replace(/\.[^.]+$/, "")}-${kind}.jpg`;
 
-  function attachCardTilt(card) {
-    if (reduceMotion) return;
-    card.addEventListener("pointermove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const px = (e.clientX - rect.left) / rect.width;
-      const py = (e.clientY - rect.top) / rect.height;
-      card.style.setProperty("--px", `${(px * 100).toFixed(2)}%`);
-      card.style.setProperty("--py", `${(py * 100).toFixed(2)}%`);
-      card.style.setProperty("--rx", `${((0.5 - py) * 12).toFixed(2)}deg`);
-      card.style.setProperty("--ry", `${((px - 0.5) * 14).toFixed(2)}deg`);
-    }, { passive: true });
-
-    card.addEventListener("pointerleave", () => {
-      card.style.setProperty("--px", "50%");
-      card.style.setProperty("--py", "50%");
-      card.style.setProperty("--rx", "0deg");
-      card.style.setProperty("--ry", "0deg");
-    });
-  }
-
-  function attachKineticControl(el) {
-    if (el.dataset.kinetic === "true") return;
-    el.dataset.kinetic = "true";
-
-    const setPoint = (event) => {
-      const rect = el.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      el.style.setProperty("--btn-x", `${x}px`);
-      el.style.setProperty("--btn-y", `${y}px`);
-      el.style.setProperty("--ripple-x", `${x}px`);
-      el.style.setProperty("--ripple-y", `${y}px`);
-    };
-
-    el.addEventListener("pointermove", setPoint, { passive: true });
-    el.addEventListener("pointerdown", (event) => {
-      setPoint(event);
-      const ripple = document.createElement("span");
-      ripple.className = "control-ripple";
-      el.appendChild(ripple);
-      ripple.addEventListener("animationend", () => ripple.remove(), { once: true });
-    }, { passive: true });
-  }
-
   const built = PHOTOS.map((p, i) => {
     const sizeClass = p.size === "wide" ? "card--wide" : p.size === "tall" ? "card--tall" : "";
     const el = document.createElement("article");
@@ -103,13 +47,10 @@
     el.setAttribute("role", "button");
     el.setAttribute("aria-label", `Open work: ${p.title}`);
     el.style.setProperty("--accent-rgb", ACCENTS[p.cat] || "0, 229, 255");
-    el.style.setProperty("--card-delay", `${i * -0.24}s`);
-    el.style.setProperty("--card-float", `${i % 2 ? -7 : -4}px`);
     el.innerHTML = `
       <div class="card__surface">
         <img src="${webImg(p.src, "thumb")}" alt="${p.title}" loading="lazy" />
         <span class="card__index">${String(i + 1).padStart(2, "0")}</span>
-        <div class="card__plus" aria-hidden="true">+</div>
         <div class="card__overlay">
           <span class="card__cat">${p.tag}</span>
           <span class="card__title">${p.title}</span>
@@ -118,14 +59,8 @@
     el._display = webImg(p.src, "display");
     el._full = p.src;
     gallery.appendChild(el);
-    attachCardTilt(el);
-    attachKineticControl(el);
     return el;
   });
-
-  document
-    .querySelectorAll(".btn, .filter, .nav__burger, .lightbox__close, .lightbox__nav, .lightbox__original, .contact__socials a, .footer a, .nav__brand, .nav__links a")
-    .forEach(attachKineticControl);
 
   /* ---------- Reveal on scroll ---------- */
   const revealEls = document.querySelectorAll(".reveal");
@@ -310,7 +245,7 @@
       lbOriginal.hidden = true;
     };
     hi.onerror = () => {
-      lbOriginal.textContent = "Failed — retry";
+      lbOriginal.textContent = "Failed, retry";
       lbOriginal.disabled = false;
     };
     hi.src = full;
