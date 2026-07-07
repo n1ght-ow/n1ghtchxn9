@@ -25,17 +25,17 @@
      `size` controls layout: "" (default), "wide", or "tall".
   */
   const PHOTOS = [
-    { title: "黑白树影", cat: "tree", tag: "TREE", src: "photos/1779456446198.jpg", size: "wide" },
-    { title: "山茱萸", cat: "flower", tag: "FLOWER", src: "photos/1779456446218.jpg", size: "" },
-    { title: "杏花坠入蓝色梦境", cat: "flower", tag: "FLOWER", src: "photos/1779456446227.jpg", size: "" },
-    { title: "玉兰借晴空呼吸", cat: "flower", tag: "FLOWER", src: "photos/1779456446231.jpg", size: "wide" },
-    { title: "逆光里未开的春天", cat: "flower", tag: "FLOWER", src: "photos/1779456446240.jpg", size: "" },
-    { title: "一枝杏花挑起晴空", cat: "flower", tag: "FLOWER", src: "photos/1779456446245.jpg", size: "" },
-    { title: "玉兰把光揉成雪", cat: "flower", tag: "FLOWER", src: "photos/1779456446248.jpg", size: "" },
-    { title: "草原尽头云在生长", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234154.jpg", size: "wide" },
-    { title: "风从云城吹过草原", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234224.jpg", size: "" },
-    { title: "山坡托起一座白云", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234337.jpg", size: "" },
-    { title: "远山慢慢化成云海", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234423.jpg", size: "wide" },
+    { title: "Tree shadows in monochrome", cat: "tree", tag: "TREE", src: "photos/1779456446198.jpg", size: "wide" },
+    { title: "Dogwood", cat: "flower", tag: "FLOWER", src: "photos/1779456446218.jpg", size: "" },
+    { title: "Apricot blossoms falling into a blue dream", cat: "flower", tag: "FLOWER", src: "photos/1779456446227.jpg", size: "" },
+    { title: "Magnolia breathing the clear sky", cat: "flower", tag: "FLOWER", src: "photos/1779456446231.jpg", size: "wide" },
+    { title: "A spring yet to open, backlit", cat: "flower", tag: "FLOWER", src: "photos/1779456446240.jpg", size: "" },
+    { title: "A single apricot branch lifting the sky", cat: "flower", tag: "FLOWER", src: "photos/1779456446245.jpg", size: "" },
+    { title: "Magnolia kneading light into snow", cat: "flower", tag: "FLOWER", src: "photos/1779456446248.jpg", size: "" },
+    { title: "Clouds growing at the edge of the plain", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234154.jpg", size: "wide" },
+    { title: "Wind from the cloud city across the plain", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234224.jpg", size: "" },
+    { title: "A hillside cradling a white cloud", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234337.jpg", size: "" },
+    { title: "Distant mountains dissolving into a sea of clouds", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234423.jpg", size: "wide" },
   ];
 
   const ACCENTS = {
@@ -101,7 +101,7 @@
     el.dataset.index = i;
     el.tabIndex = 0;
     el.setAttribute("role", "button");
-    el.setAttribute("aria-label", `打开作品：${p.title}`);
+    el.setAttribute("aria-label", `Open work: ${p.title}`);
     el.style.setProperty("--accent-rgb", ACCENTS[p.cat] || "0, 229, 255");
     el.style.setProperty("--card-delay", `${i * -0.24}s`);
     el.style.setProperty("--card-float", `${i % 2 ? -7 : -4}px`);
@@ -224,7 +224,7 @@
     lbCat.textContent = p.tag;
     lbCount.textContent = `${String(current + 1).padStart(2, "0")} / ${String(list.length).padStart(2, "0")}`;
     lbOriginal.dataset.full = card._full;
-    lbOriginal.textContent = "查看原图";
+    lbOriginal.textContent = "View original";
     lbOriginal.disabled = false;
     lbOriginal.hidden = false;
   }
@@ -303,14 +303,14 @@
     const full = lbOriginal.dataset.full;
     if (!full) return;
     lbOriginal.disabled = true;
-    lbOriginal.textContent = "原图加载中…";
+    lbOriginal.textContent = "Loading original…";
     const hi = new Image();
     hi.onload = () => {
       lbImg.src = full;
       lbOriginal.hidden = true;
     };
     hi.onerror = () => {
-      lbOriginal.textContent = "加载失败，重试";
+      lbOriginal.textContent = "Failed — retry";
       lbOriginal.disabled = false;
     };
     hi.src = full;
