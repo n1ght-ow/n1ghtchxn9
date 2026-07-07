@@ -13,8 +13,34 @@
   --accent: #ff3d71;
   --grad: linear-gradient(112deg, #00b8d4, #6c5ce7 52%, #ff3d71);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --font-display: "Syncopate", sans-serif;
-  --font-body: "Space Grotesk", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --ff-loader: "Syne", sans-serif;
+  --ff-nav-brand: "Syncopate", sans-serif;
+  --ff-nav-links: "DM Mono", monospace;
+  --ff-nav-status: "JetBrains Mono", monospace;
+  --ff-hero-label: "Major Mono Display", monospace;
+  --ff-hero-title: "Big Shoulders Display", sans-serif;
+  --ff-hero-sub: "Fraunces", "Songti SC", serif;
+  --ff-btn: "Unbounded", sans-serif;
+  --ff-metrics-b: "Anton", sans-serif;
+  --ff-metrics-span: "Space Mono", monospace;
+  --ff-section-tag: "IBM Plex Mono", monospace;
+  --ff-section-title: "Libre Franklin", sans-serif;
+  --ff-about-text: "Newsreader", "Songti SC", serif;
+  --ff-stat-b: "Bungee", sans-serif;
+  --ff-stat-span: "Archivo", sans-serif;
+  --ff-filter: "Archivo", sans-serif;
+  --ff-card-index: "Major Mono Display", monospace;
+  --ff-card-cat: "Anton", sans-serif;
+  --ff-card-title: "DM Serif Display", "Songti SC", serif;
+  --ff-contact-title: "Bungee Shade", sans-serif;
+  --ff-contact-mail: "Unbounded", sans-serif;
+  --ff-contact-socials: "Space Mono", monospace;
+  --ff-footer: "JetBrains Mono", monospace;
+  --ff-lb-title: "Syne", sans-serif;
+  --ff-lb-cat: "Space Mono", monospace;
+  --ff-lb-count: "Space Mono", monospace;
+  --ff-lb-orig: "DM Mono", monospace;
+  --font-body: "Newsreader", "PingFang SC", "Microsoft YaHei", serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -62,14 +88,8 @@ button { font: inherit; color: inherit; }
 .loader.is-done { opacity: 0; visibility: hidden; }
 
 .loader__logo {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.4rem, 6vw, 4rem);
-  line-height: 0.92;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
+  font-family: var(--ff-loader);
+  font-weight: 800;
 
 .loader__logo span:nth-child(2) {
   background: var(--grad);
@@ -104,7 +124,7 @@ button { font: inherit; color: inherit; }
 }
 
 .nav__brand {
-  font-family: var(--font-display);
+  font-family: var(--ff-nav-brand);
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.02em;
@@ -126,6 +146,7 @@ button { font: inherit; color: inherit; }
 
 .nav__links a {
   position: relative;
+  font-family: var(--ff-nav-links);
   color: var(--muted);
   font-size: 0.9rem;
   padding: 8px 2px;
@@ -159,6 +180,7 @@ button { font: inherit; color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-family: var(--ff-nav-status);
   color: var(--muted);
   font-size: 0.76rem;
   text-transform: uppercase;
@@ -212,6 +234,7 @@ button { font: inherit; color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  font-family: var(--ff-hero-label);
   color: var(--muted);
   border: 1px solid var(--line);
   padding: 8px 14px;
@@ -231,8 +254,8 @@ button { font: inherit; color: inherit; }
 .hero__title {
   margin: 28px 0 24px;
   max-width: 860px;
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--ff-hero-title);
+  font-weight: 900;
   font-size: clamp(2.8rem, 8vw, 7rem);
   line-height: 0.9;
   letter-spacing: 0.01em;
@@ -253,6 +276,7 @@ button { font: inherit; color: inherit; }
 
 .hero__sub {
   max-width: 660px;
+  font-family: var(--ff-hero-sub);
   color: var(--muted);
   font-size: 1.08rem;
 }
@@ -273,7 +297,10 @@ button { font: inherit; color: inherit; }
   padding: 0 26px;
   border: 1px solid var(--line-strong);
   border-radius: 10px;
-  font-size: 0.94rem;
+  font-family: var(--ff-btn);
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
   transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), color 0.25s var(--ease), background 0.25s var(--ease);
 }
 
@@ -328,6 +355,7 @@ button { font: inherit; color: inherit; }
   gap: 8px;
   padding: 9px 14px;
   border: 1px solid var(--line);
+  font-family: var(--ff-metrics-span);
   color: var(--muted);
   font-size: 0.76rem;
   text-transform: uppercase;
@@ -336,8 +364,10 @@ button { font: inherit; color: inherit; }
 
 .hero__metrics b {
   color: var(--text);
-  font-family: var(--font-display);
-  font-size: 1rem;
+  font-family: var(--ff-metrics-b);
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
 }
 
 .hero__visual {
@@ -400,7 +430,7 @@ button { font: inherit; color: inherit; }
 }
 
 .hero__scroll span {
-  font-family: var(--font-display);
+  font-family: "Cousine", monospace;
   font-size: 0.6rem;
   color: var(--muted);
   writing-mode: vertical-rl;
@@ -415,7 +445,7 @@ button { font: inherit; color: inherit; }
 
 /* ================= Shared section bits ================= */
 .section-tag {
-  font-family: var(--font-display);
+  font-family: var(--ff-section-tag);
   font-size: 0.74rem;
   color: var(--cyan);
   display: block;
@@ -425,10 +455,11 @@ button { font: inherit; color: inherit; }
 }
 
 .section-title {
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--ff-section-title);
+  font-weight: 900;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.12;
+  letter-spacing: -0.01em;
 }
 
 .section-title em,
@@ -477,10 +508,11 @@ button { font: inherit; color: inherit; }
 }
 
 .about__text p {
+  font-family: var(--ff-about-text);
   color: var(--muted);
   margin-top: 18px;
   max-width: 660px;
-  font-size: 1.02rem;
+  font-size: 1.04rem;
 }
 
 .about__stats {
@@ -498,17 +530,21 @@ button { font: inherit; color: inherit; }
 }
 
 .stat b {
-  font-family: var(--font-display);
+  font-family: var(--ff-stat-b);
+  font-weight: 400;
   font-size: 2.2rem;
   background: var(--grad);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   display: block;
+  letter-spacing: 0.01em;
 }
 
 .stat span {
-  font-size: 0.74rem;
+  font-family: var(--ff-stat-span);
+  font-weight: 700;
+  font-size: 0.7rem;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -542,7 +578,10 @@ button { font: inherit; color: inherit; }
   color: var(--muted);
   padding: 0 18px;
   border-radius: 999px;
+  font-family: var(--ff-filter);
+  font-weight: 500;
   font-size: 0.86rem;
+  letter-spacing: 0.01em;
   cursor: pointer;
   transition: color 0.25s var(--ease), border-color 0.25s var(--ease), background 0.25s var(--ease);
 }
@@ -637,7 +676,7 @@ button { font: inherit; color: inherit; }
   z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   padding: 22px;
   background: linear-gradient(to top, rgba(13, 20, 36, 0.82), transparent);
   transform: translateY(10px);
@@ -652,17 +691,20 @@ button { font: inherit; color: inherit; }
 }
 
 .card__cat {
-  font-family: var(--font-display);
-  font-size: 0.64rem;
+  font-family: var(--ff-card-cat);
+  font-weight: 400;
+  font-size: 0.92rem;
   color: rgb(var(--accent-rgb));
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
 }
 
 .card__title {
-  font-size: 1.06rem;
-  font-weight: 600;
+  font-family: var(--ff-card-title);
+  font-size: 1.14rem;
+  font-weight: 400;
   color: #fff;
+  line-height: 1.15;
 }
 
 .card__index {
@@ -670,10 +712,10 @@ button { font: inherit; color: inherit; }
   left: 14px;
   top: 14px;
   z-index: 4;
-  color: rgba(255, 255, 255, 0.85);
-  font-family: var(--font-display);
-  font-size: 0.64rem;
-  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--ff-card-index);
+  font-size: 0.82rem;
+  letter-spacing: 0;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
@@ -691,21 +733,24 @@ button { font: inherit; color: inherit; }
 }
 
 .contact__title {
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--ff-contact-title);
+  font-weight: 400;
   font-size: clamp(2.2rem, 6vw, 4.4rem);
   line-height: 1.06;
   margin: 16px 0 22px;
+  letter-spacing: 0.01em;
 }
 
 .contact p {
+  font-family: var(--ff-about-text);
   color: var(--muted);
 }
 
 .contact__mail {
   display: inline-block;
   margin-top: 34px;
-  font-family: var(--font-display);
+  font-family: var(--ff-contact-mail);
+  font-weight: 500;
   font-size: clamp(1.1rem, 3vw, 1.5rem);
   color: var(--text);
   letter-spacing: 0.02em;
@@ -728,7 +773,8 @@ button { font: inherit; color: inherit; }
   background: transparent;
   color: var(--muted);
   border-radius: 999px;
-  font-size: 0.88rem;
+  font-family: var(--ff-contact-socials);
+  font-size: 0.86rem;
   transition: color 0.25s var(--ease), border-color 0.25s var(--ease), background 0.25s var(--ease);
 }
 
@@ -747,8 +793,10 @@ button { font: inherit; color: inherit; }
   gap: 12px;
   padding: 28px clamp(20px, 5vw, 64px);
   border-top: 1px solid var(--line);
-  font-size: 0.82rem;
+  font-family: var(--ff-footer);
+  font-size: 0.78rem;
   color: var(--muted);
+  letter-spacing: 0.02em;
 }
 
 .footer a {
@@ -808,17 +856,19 @@ button { font: inherit; color: inherit; }
 }
 
 .lightbox__meta h3 {
-  font-family: var(--font-display);
+  font-family: var(--ff-lb-title);
   font-weight: 700;
   font-size: 1rem;
+  letter-spacing: 0.01em;
 }
 
 .lightbox__meta p {
+  font-family: var(--ff-lb-cat);
   color: var(--cyan);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   margin-top: 5px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 }
 
 .lightbox__original {
@@ -829,6 +879,9 @@ button { font: inherit; color: inherit; }
   border: 1px solid var(--line-strong);
   padding: 0 18px;
   border-radius: 999px;
+  font-family: var(--ff-lb-orig);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
   cursor: pointer;
   transition: color 0.25s var(--ease), border-color 0.25s var(--ease), background 0.25s var(--ease);
 }
@@ -900,8 +953,8 @@ button { font: inherit; color: inherit; }
   position: absolute;
   bottom: 24px;
   right: 26px;
-  font-family: var(--font-display);
-  font-size: 0.76rem;
+  font-family: var(--ff-lb-count);
+  font-size: 0.74rem;
   color: var(--muted);
   letter-spacing: 0.1em;
 }
