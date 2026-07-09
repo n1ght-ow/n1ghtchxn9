@@ -62,6 +62,74 @@
     return el;
   });
 
+  /* ---------- Games (second archive) ----------
+     To set a cover, drop an image path into `cover` ("" shows a placeholder).
+     size: "feature" = full-width row, "two" = half width, "" = standard third.
+  */
+  const GAMES = [
+    { title: "Cyberpunk 2077", genre: "Action RPG", genreKey: "rpg", dev: "CD PROJEKT RED", year: "2020",
+      verse: ["Night City sells you forever and bills you by the second.", "I chrome over every part that hurts, and still feel each one."],
+      cover: "photos/covers/cyberpunk.jpg", size: "feature" },
+    { title: "Detroit: Become Human", genre: "Narrative", genreKey: "narrative", dev: "Quantic Dream", year: "2018",
+      verse: ["They built me to obey, then called it a miracle when I refused.", "The first time I said no, I did not break. I woke."],
+      cover: "photos/covers/detroit.jpg", size: "" },
+    { title: "Red Dead Redemption 2", genre: "Open World", genreKey: "open-world", dev: "Rockstar Games", year: "2018",
+      verse: ["The frontier was closing like a wound, and we rode into the scar.", "Right at the end, a man still gets to choose what kind of man he was."],
+      cover: "photos/covers/rdr2.jpg", size: "" },
+    { title: "Grand Theft Auto V", genre: "Open World", genreKey: "open-world", dev: "Rockstar Games", year: "2013",
+      verse: ["Los Santos sells you the whole dream and repossesses it by nightfall.", "Three men, one city, each wanting more than any life can hold."],
+      cover: "photos/covers/gta5.jpg", size: "" },
+    { title: "Counter-Strike", genre: "Tactical FPS", genreKey: "fps", dev: "Valve", year: "since 2000",
+      verse: ["The maps never change, so there is no one to blame but your own hands.", "A whole round can live or die in the width of a single doorway."],
+      cover: "photos/covers/counter-strike.jpg", size: "two" },
+    { title: "Football Manager", genre: "Management", genreKey: "management", dev: "Sports Interactive", year: "since 2004",
+      verse: ["You never once touch the ball, yet no loss ever felt more like your fault.", "They stay numbers until one becomes your striker. Then he is your son."],
+      cover: "photos/covers/football-manager.jpg", size: "two" },
+    { title: "Forza Horizon 4", genre: "Racing", genreKey: "racing", dev: "Playground Games", year: "2018",
+      verse: ["Four seasons turn over the same hills, each a fresh excuse to drive nowhere.", "No story, no stakes, just the low sun and an open road. Always enough."],
+      cover: "photos/covers/forza-horizon-4.jpg", size: "feature" },
+  ];
+
+  const gamesGrid = document.getElementById("gamesGrid");
+  if (gamesGrid) {
+    const gameCover = (g) =>
+      g.cover
+        ? `<img class="game__img" src="${g.cover}" alt="${g.title} cover art" decoding="async" />`
+        : `<div class="game__ph" aria-hidden="true"><span class="game__ph-title">${g.title}</span><span class="game__ph-note">artwork pending</span></div>`;
+
+    GAMES.forEach((g) => {
+      const el = document.createElement("article");
+      el.className = `game reveal${g.size ? ` game--${g.size}` : ""}`;
+      el.dataset.genre = g.genreKey;
+      el.innerHTML = `
+        <div class="game__cover">${gameCover(g)}</div>
+        <div class="game__body">
+          <span class="game__genre">${g.genre}</span>
+          <h3 class="game__title">${g.title}</h3>
+          <blockquote class="game__verse">${g.verse.map((l) => `<span>${l}</span>`).join("")}</blockquote>
+          <p class="game__meta">${g.dev} · ${g.year}</p>
+        </div>`;
+      gamesGrid.appendChild(el);
+    });
+
+    const gamesFilters = document.getElementById("gamesFilters");
+    if (gamesFilters) {
+      const gameCards = [...gamesGrid.querySelectorAll(".game")];
+      gamesFilters.querySelectorAll(".filter").forEach((b) =>
+        b.setAttribute("aria-pressed", b.classList.contains("is-active") ? "true" : "false"));
+      gamesFilters.addEventListener("click", (e) => {
+        const btn = e.target.closest(".filter");
+        if (!btn) return;
+        gamesFilters.querySelector(".is-active")?.classList.remove("is-active");
+        gamesFilters.querySelectorAll(".filter").forEach((b) => b.setAttribute("aria-pressed", "false"));
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-pressed", "true");
+        const f = btn.dataset.filter;
+        gameCards.forEach((c) => c.classList.toggle("is-hidden", !(f === "all" || c.dataset.genre === f)));
+      });
+    }
+  }
+
   /* ---------- Reveal on scroll ---------- */
   const revealEls = document.querySelectorAll(".reveal");
 

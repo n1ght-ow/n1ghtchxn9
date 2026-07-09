@@ -37,6 +37,7 @@
       <a href="#home" data-cursor="hover">Home</a>
       <a href="#about" data-cursor="hover">About</a>
       <a href="#work" data-cursor="hover">Work</a>
+      <a href="#games" data-cursor="hover">Games</a>
       <a href="#contact" data-cursor="hover">Contact</a>
     </nav>
     <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -110,6 +111,29 @@
       </div>
     </div>
     <div class="gallery" id="gallery"><!-- injected by JS --></div>
+  </section>
+
+  <!-- ===== Games / second archive ===== -->
+  <section class="games" id="games">
+    <div class="games__head">
+      <span class="section-tag reveal">// second archive</span>
+      <h2 class="section-title reveal">Worlds I keep <em>returning to</em></h2>
+      <p class="games__intro reveal">
+        When the camera goes down, I go looking for light somewhere else. These
+        are the game worlds that outlived their own credits, sorted by the kind
+        of place they are, each with a few lines on why it stayed.
+      </p>
+    </div>
+    <div class="games__filters reveal" id="gamesFilters" role="group" aria-label="Filter games by genre">
+      <button class="filter is-active" data-filter="all" data-cursor="hover">All</button>
+      <button class="filter" data-filter="rpg" data-cursor="hover">RPG</button>
+      <button class="filter" data-filter="open-world" data-cursor="hover">Open World</button>
+      <button class="filter" data-filter="narrative" data-cursor="hover">Narrative</button>
+      <button class="filter" data-filter="fps" data-cursor="hover">Tactical FPS</button>
+      <button class="filter" data-filter="management" data-cursor="hover">Management</button>
+      <button class="filter" data-filter="racing" data-cursor="hover">Racing</button>
+    </div>
+    <div class="games-grid" id="gamesGrid"><!-- injected by script.js --></div>
   </section>
 
   <!-- ===== Contact — closing signal ===== -->
