@@ -46,11 +46,12 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero" id="home">
+    <div class="hero__media">
+      <img src="photos/web/SAVE_20260616_234423-display.jpg" alt="Distant mountains dissolving into a sea of clouds" />
+    </div>
     <div class="hero__copy">
-      <div class="hero__label reveal">
-        HYPER VISUAL ARCHIVE · 2026
-      </div>
-      <h1 class="hero__title">
+      <div class="hero__label reveal">HYPER VISUAL ARCHIVE · 2026</div>
+      <h1 class="hero__title reveal">
         <span class="line">N1GHT</span>
         <span class="line line--accent">CHXN9</span>
       </h1>
@@ -63,43 +64,35 @@
         <a href="#contact" class="btn btn--ghost" data-cursor="hover">Send a signal</a>
       </div>
     </div>
-    <div class="hero__visual reveal" aria-label="N1GHT CHXN9 visual stage">
-      <div class="hero__frame hero__frame--back">
-        <img src="photos/web/1779456446248-display.jpg" alt="Magnolia kneading light into snow" />
-      </div>
-      <div class="hero__frame hero__frame--main">
-        <img src="photos/web/SAVE_20260616_234423-display.jpg" alt="Distant mountains slowly dissolving into a sea of clouds" />
-      </div>
-      <div class="hero__frame hero__frame--side">
-        <img src="photos/web/1779456446227-display.jpg" alt="Apricot blossoms falling into a blue dream" />
-      </div>
-    </div>
   </section>
 
-  <!-- ===== About ===== -->
+  <!-- ===== About / self-introduction ===== -->
   <section class="about" id="about">
     <div class="about__grid">
-      <div class="about__media reveal">
-        <img src="photos/web/1779456446227-display.jpg" alt="Apricot blossoms falling into a blue dream" loading="lazy" />
-      </div>
+      <figure class="about__media reveal">
+        <img src="photos/web/1779456446198-display.jpg" alt="Tree shadows in monochrome" loading="lazy" />
+        <figcaption>Tree shadows in monochrome</figcaption>
+      </figure>
       <div class="about__text">
-        <span class="section-tag reveal">// about this interface</span>
-        <h2 class="section-title reveal">Stuffing photos into a<br /><em>glowing machine</em>.</h2>
+        <span class="section-tag reveal">// the maker</span>
+        <h2 class="about__lead reveal">I photograph quiet things, then push them until they <em>glow</em>.</h2>
         <p class="reveal">
-          N1GHT CHXN9 doesn't take the quiet-gallery route. It's more like an
-          imaging test bench: photos are only the input, and what grows out of
-          them is a field of light that's faster, brighter, more like night-time current.
+          I'm N1GHT CHXN9. I keep returning to the same quiet things: a bare
+          branch against a pale sky, a hillside losing itself in cloud, the last
+          few minutes of light. I'm not trying to document any of it, only to keep
+          the feeling a scene gave me before it drains away.
         </p>
         <p class="reveal">
-          Landscape, flowers and sky keep their softer side, but they don't have
-          to hang quietly on a wall. They can come rushing out, like a brief,
-          beautiful, overloaded signal.
+          So I push each frame past where it wants to stop, until the color and
+          contrast say what the moment felt like, not just what it looked like.
+          Honestly, most of the work is me arguing with myself about how far is
+          too far. This archive is where I keep having that argument, out loud.
         </p>
-        <div class="about__stats">
-          <div class="stat reveal"><b data-count="11">0</b><span>FRAMES</span></div>
-          <div class="stat reveal"><b data-count="3">0</b><span>STREAMS</span></div>
-          <div class="stat reveal"><b data-count="1">0</b><span>ARCHIVE</span></div>
-        </div>
+        <dl class="about__meta reveal">
+          <div><dt>Practice</dt><dd>Photography and digital light</dd></div>
+          <div><dt>Subjects</dt><dd>Landscape, flora, sky</dd></div>
+          <div><dt>Archive</dt><dd>2026, ongoing</dd></div>
+        </dl>
       </div>
     </div>
   </section>
@@ -119,16 +112,22 @@
     <div class="gallery" id="gallery"><!-- injected by JS --></div>
   </section>
 
-  <!-- ===== Contact ===== -->
+  <!-- ===== Contact — closing signal ===== -->
   <section class="contact" id="contact">
     <div class="contact__inner">
-      <span class="section-tag reveal">// SIGNAL</span>
-      <h2 class="contact__title reveal">Light up the next<br /><em>visual experiment</em>.</h2>
-      <p class="reveal">Image pages, creative showcases, visual packaging and collab experiments. Leave a note anytime.</p>
-      <span class="contact__mail reveal">n1ghtchxn9@gmail.com</span>
+      <span class="section-tag reveal">// signal</span>
+      <h2 class="contact__title reveal">
+        <span class="line">Send a</span>
+        <span class="line line--accent">signal.</span>
+      </h2>
+      <p class="reveal">
+        Image pages, showcases, visual packaging, or a shared experiment.
+        Tell me what you're making and I'll answer.
+      </p>
+      <a href="mailto:n1ghtchxn9@gmail.com" class="contact__mail reveal">n1ghtchxn9@gmail.com</a>
       <div class="contact__socials reveal">
-        <a href="https://x.com/n1ghtchxn9" target="_blank" rel="noopener noreferrer" data-cursor="hover">X</a>
-        <a href="https://www.instagram.com/n1ght1121/" target="_blank" rel="noopener noreferrer" data-cursor="hover">Instagram</a>
+        <a href="https://x.com/n1ghtchxn9" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://www.instagram.com/n1ght1121/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
     </div>
   </section>
@@ -136,7 +135,7 @@
   <!-- ===== Footer ===== -->
   <footer class="footer">
     <span>© <span id="year"></span> N1GHT CHXN9</span>
-    <span>Hyper visual archive · light field running</span>
+    <span>Still chasing light that's already gone</span>
     <a href="#home" data-cursor="hover">Back to top ↑</a>
   </footer>
 
