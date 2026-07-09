@@ -43,9 +43,12 @@ function broadcastReload() {
 }
 
 // Debounced file watcher (recursive works on Windows + macOS).
+// Ignore VCS/deps/tooling dirs so git activity doesn't trigger reload storms.
+const IGNORE = /(^|[\\/])(\.git|node_modules|\.claude)([\\/]|$)/;
 let timer = null;
 fs.watch(ROOT, { recursive: true }, (_evt, file) => {
   if (file && file.startsWith("dev-server")) return; // ignore self
+  if (file && IGNORE.test(file)) return;             // ignore .git / deps / tooling
   clearTimeout(timer);
   timer = setTimeout(() => {
     console.log("  ↻ changed:", file, "→ reloading browser");
