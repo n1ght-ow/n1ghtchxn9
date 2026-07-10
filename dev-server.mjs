@@ -22,17 +22,23 @@ const MIME = {
   ".webp": "image/webp",
   ".avif": "image/avif",
   ".ico": "image/x-icon",
+  ".ttf": "font/ttf",
   ".woff": "font/woff",
   ".woff2": "font/woff2",
+  ".xml": "application/xml; charset=utf-8",
+  ".txt": "text/plain; charset=utf-8",
 };
 
 // Script injected into every HTML page: listens for reload events via SSE.
 const LIVE_RELOAD = `
 <script>
-(function(){
+(function connect(){
   const es = new EventSource("/__livereload");
   es.onmessage = () => location.reload();
-  es.onerror = () => { es.close(); setTimeout(() => location.reload(), 1000); };
+  es.onerror = () => {
+    es.close();
+    setTimeout(connect, 1000);
+  };
 })();
 </script>`;
 
@@ -44,7 +50,7 @@ function broadcastReload() {
 
 // Debounced file watcher (recursive works on Windows + macOS).
 // Ignore VCS/deps/tooling dirs so git activity doesn't trigger reload storms.
-const IGNORE = /(^|[\\/])(\.git|node_modules|\.claude)([\\/]|$)/;
+const IGNORE = /(^|[\\/])(\.git|node_modules|\.claude|output)([\\/]|$)/;
 let timer = null;
 fs.watch(ROOT, { recursive: true }, (_evt, file) => {
   if (file && file.startsWith("dev-server")) return; // ignore self

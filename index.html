@@ -3,179 +3,236 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="N1GHT CHXN9 · a hyper visual photo archive and high-energy visual experiment" />
+  <meta name="description" content="The personal website of N1GHT CHXN9: photography, visual experiments, favorite game worlds, and ways to connect." />
+  <meta name="author" content="N1GHT CHXN9" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="color-scheme" content="dark" />
   <meta name="theme-color" content="#0a0a0b" />
-  <meta property="og:title" content="N1GHT CHXN9 · Hyper Visual Archive" />
-  <meta property="og:description" content="A high-energy visual experiment built from a small photo archive." />
-  <meta property="og:image" content="photos/web/SAVE_20260616_234423-display.jpg" />
-  <title>N1GHT CHXN9 · Hyper Visual Archive</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="photos/web/SAVE_20260616_234423-display.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="N1GHT CHXN9" />
+  <meta property="og:title" content="N1GHT CHXN9 · Personal Website" />
+  <meta property="og:description" content="Photography, visual experiments, game worlds, and the things N1GHT CHXN9 keeps returning to." />
+  <meta property="og:url" content="https://n1ght-ow.github.io/n1ghtchxn9/" />
+  <meta property="og:image" content="https://n1ght-ow.github.io/n1ghtchxn9/photos/web/SAVE_20260616_234423-display.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="2000" />
+  <meta property="og:image:height" content="1333" />
+  <meta property="og:image:alt" content="Distant mountains and clouds photographed by N1GHT CHXN9" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@n1ghtchxn9" />
+  <meta name="twitter:title" content="N1GHT CHXN9 · Personal Website" />
+  <meta name="twitter:description" content="Photography, visual experiments, favorite game worlds, and ways to connect." />
+  <meta name="twitter:image" content="https://n1ght-ow.github.io/n1ghtchxn9/photos/web/SAVE_20260616_234423-display.jpg" />
+  <title>N1GHT CHXN9 · Personal Website</title>
+  <link rel="canonical" href="https://n1ght-ow.github.io/n1ghtchxn9/" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preload" as="font" href="fonts/Syne-Variable.ttf" type="font/ttf" crossorigin />
+  <link rel="preload" as="font" href="fonts/SpaceGrotesk-Variable.ttf" type="font/ttf" crossorigin />
+  <link
+    rel="preload"
+    as="image"
+    href="photos/web/SAVE_20260616_234423-thumb.jpg"
+    imagesrcset="photos/web/SAVE_20260616_234423-thumb.jpg 1400w, photos/web/SAVE_20260616_234423-display.jpg 2000w"
+    imagesizes="(max-width: 860px) 100vw, 100vw"
+    fetchpriority="high"
+  />
   <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "N1GHT CHXN9",
+      "url": "https://n1ght-ow.github.io/n1ghtchxn9/",
+      "image": "https://n1ght-ow.github.io/n1ghtchxn9/photos/web/SAVE_20260616_234423-display.jpg",
+      "description": "Photographer, gamer, and digital visual maker.",
+      "sameAs": [
+        "https://x.com/n1ghtchxn9",
+        "https://www.instagram.com/n1ght1121/"
+      ],
+      "knowsAbout": ["Photography", "Digital art", "Video games", "Visual culture"]
+    }
+  </script>
 </head>
 <body>
-
-  <!-- ===== Loader ===== -->
-  <div class="loader" id="loader">
-    <div class="loader__logo">
-      <span>N1GHT</span>
-      <span>CHXN9</span>
-    </div>
-    <div class="loader__signal">BOOTING LIGHT FIELD</div>
-    <div class="loader__bar"><span id="loaderBar"></span></div>
-    <div class="loader__pct" id="loaderPct">0%</div>
-  </div>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- ===== Nav ===== -->
   <header class="nav" id="nav">
-    <a href="#home" class="nav__brand" data-cursor="hover">
+    <a href="#home" class="nav__brand" aria-label="N1GHT CHXN9 home">
       <span class="nav__brand-mark">N1</span>GHT CHXN9
     </a>
-    <nav class="nav__links" id="navLinks">
-      <a href="#home" data-cursor="hover">Home</a>
-      <a href="#about" data-cursor="hover">About</a>
-      <a href="#work" data-cursor="hover">Work</a>
-      <a href="#games" data-cursor="hover">Games</a>
-      <a href="#contact" data-cursor="hover">Contact</a>
-    </nav>
-    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <button class="nav__burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span>
     </button>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#home" aria-current="location">Home</a>
+      <a href="#about">About</a>
+      <a href="#work">Photography</a>
+      <a href="#games">Games</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav__backdrop" id="menuBackdrop" type="button" tabindex="-1" aria-hidden="true"></button>
   </header>
 
-  <!-- ===== Hero ===== -->
-  <section class="hero" id="home">
-    <div class="hero__media">
-      <img src="photos/web/SAVE_20260616_234423-display.jpg" alt="Distant mountains dissolving into a sea of clouds" />
-    </div>
-    <div class="hero__copy">
-      <div class="hero__label reveal">HYPER VISUAL ARCHIVE · 2026</div>
-      <h1 class="hero__title reveal">
-        <span class="line">N1GHT</span>
-        <span class="line line--accent">CHXN9</span>
-      </h1>
-      <p class="hero__sub reveal">
-        Photos are only fuel. Landscape, flowers and light feed a
-        night-colored engine, leaving bright, drifting echoes.
-      </p>
-      <div class="hero__cta reveal">
-        <a href="#work" class="btn btn--primary" data-cursor="hover">Enter the light field <i>→</i></a>
-        <a href="#contact" class="btn btn--ghost" data-cursor="hover">Send a signal</a>
+  <main id="main-content" tabindex="-1">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="home" aria-labelledby="heroTitle">
+      <div class="hero__media">
+        <img
+          src="photos/web/SAVE_20260616_234423-thumb.jpg"
+          srcset="photos/web/SAVE_20260616_234423-thumb.jpg 1400w, photos/web/SAVE_20260616_234423-display.jpg 2000w"
+          sizes="100vw"
+          width="2000"
+          height="1333"
+          alt="Distant mountains dissolving into a sea of clouds"
+          decoding="async"
+          fetchpriority="high"
+        />
       </div>
-    </div>
-  </section>
-
-  <!-- ===== About / self-introduction ===== -->
-  <section class="about" id="about">
-    <div class="about__grid">
-      <figure class="about__media reveal">
-        <img src="photos/web/1779456446198-display.jpg" alt="Tree shadows in monochrome" loading="lazy" />
-        <figcaption>Tree shadows in monochrome</figcaption>
-      </figure>
-      <div class="about__text">
-        <span class="section-tag reveal">// the maker</span>
-        <h2 class="about__lead reveal">I photograph quiet things, then push them until they <em>glow</em>.</h2>
-        <p class="reveal">
-          I'm N1GHT CHXN9. I keep returning to the same quiet things: a bare
-          branch against a pale sky, a hillside losing itself in cloud, the last
-          few minutes of light. I'm not trying to document any of it, only to keep
-          the feeling a scene gave me before it drains away.
+      <div class="hero__copy">
+        <div class="hero__label reveal">PERSONAL ARCHIVE · 2026</div>
+        <h1 class="hero__title reveal" id="heroTitle">
+          <span class="line">N1GHT</span>
+          <span class="line line--accent">CHXN9</span>
+        </h1>
+        <p class="hero__sub reveal">
+          A personal space for photographs, digital experiments, and the game
+          worlds that keep following me home.
         </p>
-        <p class="reveal">
-          So I push each frame past where it wants to stop, until the color and
-          contrast say what the moment felt like, not just what it looked like.
-          Honestly, most of the work is me arguing with myself about how far is
-          too far. This archive is where I keep having that argument, out loud.
+        <div class="hero__cta reveal">
+          <a href="#work" class="btn btn--primary">Explore the archive <i aria-hidden="true">→</i></a>
+          <a href="#contact" class="btn btn--ghost">Say hello</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About / self-introduction ===== -->
+    <section class="about" id="about">
+      <div class="about__grid">
+        <figure class="about__media reveal">
+          <img
+            src="photos/web/1779456446198-thumb.jpg"
+            srcset="photos/web/1779456446198-thumb.jpg 1400w, photos/web/1779456446198-display.jpg 2000w"
+            sizes="(max-width: 860px) calc(100vw - 40px), 38vw"
+            width="2000"
+            height="1333"
+            alt="Tree shadows in monochrome"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Tree shadows in monochrome</figcaption>
+        </figure>
+        <div class="about__text">
+          <span class="section-tag reveal">// about n1ght chxn9</span>
+          <h2 class="about__lead reveal">I keep the images, worlds and ideas that refuse to <em>fade</em>.</h2>
+          <p class="reveal">
+            I'm N1GHT CHXN9. I photograph quiet landscapes and small flashes of
+            light, then edit them until they feel closer to memory than documentation.
+          </p>
+          <p class="reveal">
+            Away from the camera, I spend time inside game worlds, digital culture,
+            and whatever new visual idea is worth chasing. This site brings those
+            parts together: an evolving record of what I notice, make, and keep
+            returning to.
+          </p>
+          <dl class="about__meta reveal">
+            <div><dt>Practice</dt><dd>Photography and digital experiments</dd></div>
+            <div><dt>Interests</dt><dd>Games, visual culture, light</dd></div>
+            <div><dt>Archive</dt><dd>Personal, ongoing</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Work / Portfolio ===== -->
+    <section class="work" id="work">
+      <div class="work__head">
+        <div class="work__title-group">
+          <span class="section-tag reveal">// photography</span>
+          <h2 class="section-title reveal">Images I wanted to <em>keep</em></h2>
+          <p class="work__intro reveal">Landscapes, branches, flowers and sky, edited toward the feeling I remember.</p>
+        </div>
+        <div class="filters reveal" id="filters" role="group" aria-label="Filter photographs by subject" aria-controls="gallery">
+          <button class="filter is-active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="tree">Trees</button>
+          <button class="filter" type="button" data-filter="flower">Flowers</button>
+          <button class="filter" type="button" data-filter="sky">Sky</button>
+        </div>
+      </div>
+      <p class="sr-only" id="photoFilterStatus" role="status" aria-live="polite"></p>
+      <div class="gallery" id="gallery"><!-- injected by JS --></div>
+    </section>
+
+    <!-- ===== Games / second archive ===== -->
+    <section class="games" id="games">
+      <div class="games__head">
+        <span class="section-tag reveal">// game worlds</span>
+        <h2 class="section-title reveal">Worlds that stayed <em>with me</em></h2>
+        <p class="games__intro reveal">
+          Games are another way I collect atmosphere, places, and stories. These
+          are the worlds I still think about after the credits, with a few lines
+          on why each one stayed.
         </p>
-        <dl class="about__meta reveal">
-          <div><dt>Practice</dt><dd>Photography and digital light</dd></div>
-          <div><dt>Subjects</dt><dd>Landscape, flora, sky</dd></div>
-          <div><dt>Archive</dt><dd>2026, ongoing</dd></div>
-        </dl>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== Work / Portfolio ===== -->
-  <section class="work" id="work">
-    <div class="work__head">
-      <span class="section-tag reveal">// image array</span>
-      <h2 class="section-title reveal">Selected <em>visual samples</em></h2>
-      <div class="filters reveal" id="filters">
-        <button class="filter is-active" data-filter="all" data-cursor="hover">All</button>
-        <button class="filter" data-filter="tree" data-cursor="hover">Trees</button>
-        <button class="filter" data-filter="flower" data-cursor="hover">Flowers</button>
-        <button class="filter" data-filter="sky" data-cursor="hover">Sky</button>
+      <div class="games__filters reveal" id="gamesFilters" role="group" aria-label="Filter games by genre">
+        <button class="filter is-active" type="button" data-filter="all">All</button>
+        <button class="filter" type="button" data-filter="rpg">RPG</button>
+        <button class="filter" type="button" data-filter="open-world">Open World</button>
+        <button class="filter" type="button" data-filter="narrative">Narrative</button>
+        <button class="filter" type="button" data-filter="fps">Tactical FPS</button>
+        <button class="filter" type="button" data-filter="management">Management</button>
+        <button class="filter" type="button" data-filter="racing">Racing</button>
       </div>
-    </div>
-    <div class="gallery" id="gallery"><!-- injected by JS --></div>
-  </section>
+      <div class="games-grid" id="gamesGrid"><!-- injected by script.js --></div>
+    </section>
 
-  <!-- ===== Games / second archive ===== -->
-  <section class="games" id="games">
-    <div class="games__head">
-      <span class="section-tag reveal">// second archive</span>
-      <h2 class="section-title reveal">Worlds I keep <em>returning to</em></h2>
-      <p class="games__intro reveal">
-        When the camera goes down, I go looking for light somewhere else. These
-        are the game worlds that outlived their own credits, sorted by the kind
-        of place they are, each with a few lines on why it stayed.
-      </p>
-    </div>
-    <div class="games__filters reveal" id="gamesFilters" role="group" aria-label="Filter games by genre">
-      <button class="filter is-active" data-filter="all" data-cursor="hover">All</button>
-      <button class="filter" data-filter="rpg" data-cursor="hover">RPG</button>
-      <button class="filter" data-filter="open-world" data-cursor="hover">Open World</button>
-      <button class="filter" data-filter="narrative" data-cursor="hover">Narrative</button>
-      <button class="filter" data-filter="fps" data-cursor="hover">Tactical FPS</button>
-      <button class="filter" data-filter="management" data-cursor="hover">Management</button>
-      <button class="filter" data-filter="racing" data-cursor="hover">Racing</button>
-    </div>
-    <div class="games-grid" id="gamesGrid"><!-- injected by script.js --></div>
-  </section>
-
-  <!-- ===== Contact — closing signal ===== -->
-  <section class="contact" id="contact">
-    <div class="contact__inner">
-      <span class="section-tag reveal">// signal</span>
-      <h2 class="contact__title reveal">
-        <span class="line">Send a</span>
-        <span class="line line--accent">signal.</span>
-      </h2>
-      <p class="reveal">
-        Image pages, showcases, visual packaging, or a shared experiment.
-        Tell me what you're making and I'll answer.
-      </p>
-      <a href="mailto:n1ghtchxn9@gmail.com" class="contact__mail reveal">n1ghtchxn9@gmail.com</a>
-      <div class="contact__socials reveal">
-        <a href="https://x.com/n1ghtchxn9" target="_blank" rel="noopener noreferrer">X</a>
-        <a href="https://www.instagram.com/n1ght1121/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <!-- ===== Contact — closing signal ===== -->
+    <section class="contact" id="contact">
+      <div class="contact__inner">
+        <span class="section-tag reveal">// connect</span>
+        <h2 class="contact__title reveal">
+          <span class="line">Send a</span>
+          <span class="line line--accent">signal.</span>
+        </h2>
+        <p class="reveal">
+          For photography, visual collaborations, game conversations, or simply
+          to say hello, send a message. I read everything myself.
+        </p>
+        <p class="contact__availability reveal">Open to thoughtful collaborations and small visual projects.</p>
+        <div class="contact__actions reveal">
+          <a href="mailto:n1ghtchxn9@gmail.com" class="contact__mail">n1ghtchxn9@gmail.com</a>
+          <button class="contact__copy" id="copyEmail" type="button" data-email="n1ghtchxn9@gmail.com">Copy email</button>
+        </div>
+        <span class="sr-only" id="copyStatus" role="status" aria-live="polite"></span>
+        <div class="contact__socials reveal">
+          <a href="https://x.com/n1ghtchxn9" target="_blank" rel="noopener noreferrer" aria-label="N1GHT CHXN9 on X">X</a>
+          <a href="https://www.instagram.com/n1ght1121/" target="_blank" rel="noopener noreferrer" aria-label="N1GHT CHXN9 on Instagram">Instagram</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- ===== Footer ===== -->
   <footer class="footer">
     <span>© <span id="year"></span> N1GHT CHXN9</span>
-    <span>Still chasing light that's already gone</span>
-    <a href="#home" data-cursor="hover">Back to top ↑</a>
+    <span>Photography, game worlds, and everything between</span>
+    <a href="#home">Back to top ↑</a>
   </footer>
 
   <!-- ===== Lightbox ===== -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lbTitle">
-    <button class="lightbox__close" id="lbClose" aria-label="Close image">✕</button>
-    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous">‹</button>
+    <button class="lightbox__close" id="lbClose" type="button" aria-label="Close image">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Previous image">‹</button>
     <div class="lightbox__stage">
-      <img id="lbImg" src="" alt="" />
+      <img id="lbImg" alt="" />
       <div class="lightbox__meta">
         <h3 id="lbTitle"></h3>
         <p id="lbCat"></p>
         <button class="lightbox__original" id="lbOriginal" type="button">View original</button>
       </div>
     </div>
-    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next">›</button>
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Next image">›</button>
     <div class="lightbox__count" id="lbCount"></div>
   </div>
 
