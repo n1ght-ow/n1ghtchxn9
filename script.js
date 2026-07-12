@@ -12,17 +12,94 @@
      `size` controls layout: "" (default), "wide", or "tall".
   */
   const PHOTOS = [
-    { title: "Tree shadows in monochrome", cat: "tree", tag: "TREE", src: "photos/1779456446198.jpg", size: "wide" },
-    { title: "Dogwood", cat: "flower", tag: "FLOWER", src: "photos/1779456446218.jpg", size: "" },
-    { title: "Apricot blossoms falling into a blue dream", cat: "flower", tag: "FLOWER", src: "photos/1779456446227.jpg", size: "" },
-    { title: "Magnolia breathing the clear sky", cat: "flower", tag: "FLOWER", src: "photos/1779456446231.jpg", size: "wide" },
-    { title: "A spring yet to open, backlit", cat: "flower", tag: "FLOWER", src: "photos/1779456446240.jpg", size: "" },
-    { title: "A single apricot branch lifting the sky", cat: "flower", tag: "FLOWER", src: "photos/1779456446245.jpg", size: "" },
-    { title: "Magnolia kneading light into snow", cat: "flower", tag: "FLOWER", src: "photos/1779456446248.jpg", size: "" },
-    { title: "Clouds growing at the edge of the plain", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234154.jpg", size: "wide" },
-    { title: "Wind from the cloud city across the plain", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234224.jpg", size: "" },
-    { title: "A hillside cradling a white cloud", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234337.jpg", size: "" },
-    { title: "Distant mountains dissolving into a sea of clouds", cat: "sky", tag: "SKY", src: "photos/SAVE_20260616_234423.jpg", size: "wide" },
+    {
+      title: "Branches against white",
+      alt: "Bare tree branches silhouetted against a pale sky",
+      cat: "tree",
+      tag: "TREE STUDY",
+      src: "photos/1779456446198.jpg",
+      size: "wide",
+    },
+    {
+      title: "Dogwood in late light",
+      alt: "White dogwood blossoms lit from the side",
+      cat: "flower",
+      tag: "BOTANICAL",
+      src: "photos/1779456446218.jpg",
+      size: "",
+    },
+    {
+      title: "Apricot blossoms in blue",
+      alt: "White apricot blossoms against a soft blue background",
+      cat: "flower",
+      tag: "BOTANICAL",
+      src: "photos/1779456446227.jpg",
+      size: "",
+    },
+    {
+      title: "Magnolia / clear sky",
+      alt: "Magnolia blossoms reaching into a clear blue sky",
+      cat: "flower",
+      tag: "BOTANICAL",
+      src: "photos/1779456446231.jpg",
+      size: "wide",
+    },
+    {
+      title: "Before bloom / backlit",
+      alt: "An unopened flower bud illuminated from behind",
+      cat: "flower",
+      tag: "BOTANICAL",
+      src: "photos/1779456446240.jpg",
+      size: "",
+    },
+    {
+      title: "Apricot branch / open sky",
+      alt: "A flowering apricot branch crossing an open blue sky",
+      cat: "flower",
+      tag: "BOTANICAL",
+      src: "photos/1779456446245.jpg",
+      size: "",
+    },
+    {
+      title: "Magnolia / morning light",
+      alt: "A close view of white magnolia petals in morning light",
+      cat: "flower",
+      tag: "BOTANICAL",
+      src: "photos/1779456446248.jpg",
+      size: "",
+    },
+    {
+      title: "Cloudbank at the edge of the plain",
+      alt: "A bank of white clouds rising beyond open grassland",
+      cat: "sky",
+      tag: "OPEN SKY",
+      src: "photos/SAVE_20260616_234154.jpg",
+      size: "",
+    },
+    {
+      title: "Weather moving over the grassland",
+      alt: "Cloud shadows moving across a wide grassland",
+      cat: "sky",
+      tag: "OPEN SKY",
+      src: "photos/SAVE_20260616_234224.jpg",
+      size: "",
+    },
+    {
+      title: "One cloud beyond the ridge",
+      alt: "A single white cloud floating beyond a green ridge",
+      cat: "sky",
+      tag: "OPEN SKY",
+      src: "photos/SAVE_20260616_234337.jpg",
+      size: "",
+    },
+    {
+      title: "Clouds resting beyond the grassland",
+      alt: "Large white clouds resting above a distant grassland ridge",
+      cat: "sky",
+      tag: "OPEN SKY",
+      src: "photos/SAVE_20260616_234423.jpg",
+      size: "wide",
+    },
   ];
 
   /* ---------- Build gallery ---------- */
@@ -32,22 +109,25 @@
 
   const built = PHOTOS.map((p, i) => {
     const sizeClass = p.size === "wide" ? "card--wide" : p.size === "tall" ? "card--tall" : "";
-    const el = document.createElement("article");
+    const el = document.createElement("button");
+    el.type = "button";
     el.className = `card ${sizeClass}`.trim();
     el.dataset.cat = p.cat;
     el.dataset.index = i;
-    el.tabIndex = 0;
-    el.setAttribute("role", "button");
     el.setAttribute("aria-label", `Open work: ${p.title}`);
+    el.setAttribute("aria-haspopup", "dialog");
     el.innerHTML = `
-      <div class="card__surface">
-        <img src="${webImg(p.src, "thumb")}" alt="${p.title}" loading="lazy" decoding="async" />
-        <span class="card__index">${String(i + 1).padStart(2, "0")}</span>
-        <div class="card__overlay">
+      <span class="card__surface">
+        <span class="card__visual">
+          <img src="${webImg(p.src, "thumb")}" alt="${p.alt}" loading="lazy" decoding="async" />
+          <span class="card__index">${String(i + 1).padStart(2, "0")}</span>
+          <span class="card__open" aria-hidden="true">↗</span>
+        </span>
+        <span class="card__caption">
           <span class="card__cat">${p.tag}</span>
           <span class="card__title">${p.title}</span>
-        </div>
-      </div>`;
+        </span>
+      </span>`;
     el._display = webImg(p.src, "display");
     el._full = p.src;
     gallery.appendChild(el);
@@ -59,25 +139,25 @@
      size: "feature" = full-width row, "two" = half width, "" = standard third.
   */
   const GAMES = [
-    { title: "Cyberpunk 2077", genre: "Action RPG", genreKey: "rpg", dev: "CD PROJEKT RED", year: "2020",
+    { title: "Cyberpunk 2077", genre: "Action RPG", groupKey: "story", dev: "CD PROJEKT RED", year: "2020—2023",
       verse: ["Night City sells you forever and bills you by the second.", "I chrome over every part that hurts, and still feel each one."],
       cover: "photos/covers/cyberpunk.jpg", size: "feature" },
-    { title: "Detroit: Become Human", genre: "Narrative", genreKey: "narrative", dev: "Quantic Dream", year: "2018",
+    { title: "Detroit: Become Human", genre: "Narrative", groupKey: "story", dev: "Quantic Dream", year: "2018",
       verse: ["They built me to obey, then called it a miracle when I refused.", "The first time I said no, I did not break. I woke."],
       cover: "photos/covers/detroit.jpg", size: "" },
-    { title: "Red Dead Redemption 2", genre: "Open World", genreKey: "open-world", dev: "Rockstar Games", year: "2018",
+    { title: "Red Dead Redemption 2", genre: "Open World", groupKey: "story", dev: "Rockstar Games", year: "2018",
       verse: ["The frontier was closing like a wound, and we rode into the scar.", "Right at the end, a man still gets to choose what kind of man he was."],
       cover: "photos/covers/rdr2.jpg", size: "" },
-    { title: "Grand Theft Auto V", genre: "Open World", genreKey: "open-world", dev: "Rockstar Games", year: "2013",
+    { title: "Grand Theft Auto V", genre: "Open World", groupKey: "story", dev: "Rockstar Games", year: "2013",
       verse: ["Los Santos sells you the whole dream and repossesses it by nightfall.", "Three men, one city, each wanting more than any life can hold."],
       cover: "photos/covers/gta5.jpg", size: "" },
-    { title: "Counter-Strike", genre: "Tactical FPS", genreKey: "fps", dev: "Valve", year: "since 2000",
+    { title: "Counter-Strike", genre: "Tactical FPS", groupKey: "systems", dev: "Valve", year: "2000—",
       verse: ["The maps never change, so there is no one to blame but your own hands.", "A whole round can live or die in the width of a single doorway."],
       cover: "photos/covers/counter-strike.jpg", size: "two" },
-    { title: "Football Manager", genre: "Management", genreKey: "management", dev: "Sports Interactive", year: "since 2004",
-      verse: ["You never once touch the ball, yet no loss ever felt more like your fault.", "They stay numbers until one becomes your striker. Then he is your son."],
+    { title: "Football Manager", genre: "Management", groupKey: "systems", dev: "Sports Interactive", year: "2004—",
+      verse: ["You never once touch the ball, yet no loss ever felt more like your fault.", "They begin as numbers. Then one becomes your striker, and every loss starts to feel personal."],
       cover: "photos/covers/football-manager.jpg", size: "two" },
-    { title: "Forza Horizon 4", genre: "Racing", genreKey: "racing", dev: "Playground Games", year: "2018",
+    { title: "Forza Horizon 4", genre: "Racing", groupKey: "motion", dev: "Playground Games", year: "2018",
       verse: ["Four seasons turn over the same hills, each a fresh excuse to drive nowhere.", "No story, no stakes, just the low sun and an open road. Always enough."],
       cover: "photos/covers/forza-horizon-4.jpg", size: "feature" },
   ];
@@ -86,25 +166,36 @@
   if (gamesGrid) {
     const gameCover = (g) =>
       g.cover
-        ? `<img class="game__img" src="${g.cover}" alt="${g.title} cover art" width="1600" height="900" loading="lazy" decoding="async" fetchpriority="low" />`
+        ? `<img class="game__img" src="${g.cover}" alt="" width="1600" height="900" loading="lazy" decoding="async" fetchpriority="low" />`
         : `<div class="game__ph" aria-hidden="true"><span class="game__ph-title">${g.title}</span><span class="game__ph-note">artwork pending</span></div>`;
 
-    GAMES.forEach((g) => {
+    GAMES.forEach((g, i) => {
       const el = document.createElement("article");
       el.className = `game reveal${g.size ? ` game--${g.size}` : ""}`;
-      el.dataset.genre = g.genreKey;
+      el.dataset.genre = g.groupKey;
+      el.style.setProperty("--i", i);
       el.innerHTML = `
-        <div class="game__cover">${gameCover(g)}</div>
+        <div class="game__cover">
+          ${gameCover(g)}
+          <span class="game__number" aria-hidden="true">G—${String(i + 1).padStart(2, "0")}</span>
+        </div>
         <div class="game__body">
           <span class="game__genre">${g.genre}</span>
           <h3 class="game__title">${g.title}</h3>
-          <blockquote class="game__verse">${g.verse.map((l) => `<span>${l}</span>`).join("")}</blockquote>
-          <p class="game__meta">${g.dev} · ${g.year}</p>
+          <div class="game__verse">
+            <span class="game__why">Why it stayed</span>
+            <p>${g.verse.join(" ")}</p>
+          </div>
+          <div class="game__footer">
+            <p class="game__meta">${g.dev} · ${g.year}</p>
+            <span class="game__mark" aria-hidden="true">Archive note</span>
+          </div>
         </div>`;
       gamesGrid.appendChild(el);
     });
 
     const gamesFilters = document.getElementById("gamesFilters");
+    const gamesFilterStatus = document.getElementById("gamesFilterStatus");
     if (gamesFilters) {
       const gameCards = [...gamesGrid.querySelectorAll(".game")];
       gamesFilters.querySelectorAll(".filter").forEach((b) =>
@@ -117,7 +208,16 @@
         btn.classList.add("is-active");
         btn.setAttribute("aria-pressed", "true");
         const f = btn.dataset.filter;
-        gameCards.forEach((c) => c.classList.toggle("is-hidden", !(f === "all" || c.dataset.genre === f)));
+        let visibleCount = 0;
+        gameCards.forEach((c) => {
+          const show = f === "all" || c.dataset.genre === f;
+          c.classList.toggle("is-hidden", !show);
+          if (show) visibleCount += 1;
+        });
+        if (gamesFilterStatus) {
+          const label = { story: "story-world", systems: "systems", motion: "motion" }[f];
+          gamesFilterStatus.textContent = `Showing ${visibleCount} ${label ? `${label} ` : ""}game${visibleCount === 1 ? "" : "s"}.`;
+        }
       });
     }
   }
@@ -184,13 +284,16 @@
     const f = btn.dataset.filter;
     let visibleCount = 0;
     built.forEach((c) => {
-      const show = f === "all" || c.dataset.cat === f;
+      const show =
+        f === "all" ||
+        (f === "botanical" && (c.dataset.cat === "tree" || c.dataset.cat === "flower")) ||
+        (f === "open-sky" && c.dataset.cat === "sky");
       c.classList.toggle("is-hidden", !show);
       c.classList.remove("is-in");
       if (show) visibleCount += 1;
     });
 
-    const subject = { tree: "tree", flower: "flower", sky: "sky" }[f];
+    const subject = { botanical: "botanical", "open-sky": "open-sky" }[f];
     photoFilterStatus.textContent = `Showing ${visibleCount} ${subject ? `${subject} ` : ""}photographs.`;
 
     window.__restaggerCards?.();
@@ -300,14 +403,6 @@
     if (card) openLightbox(card);
   });
 
-  gallery.addEventListener("keydown", (e) => {
-    if (e.key !== "Enter" && e.key !== " ") return;
-    const card = e.target.closest(".card");
-    if (!card) return;
-    e.preventDefault();
-    openLightbox(card);
-  });
-
   lbClose.addEventListener("click", closeLightbox);
   document.getElementById("lbNext").addEventListener("click", () => step(1));
   document.getElementById("lbPrev").addEventListener("click", () => step(-1));
@@ -356,6 +451,7 @@
   const burger = document.getElementById("burger");
   const navLinks = document.querySelector(".nav__links");
   const menuBackdrop = document.getElementById("menuBackdrop");
+  const scrollProgress = document.getElementById("scrollProgress");
   const menuQuery = window.matchMedia("(max-width: 720px)");
   const menuBackground = [mainContent, pageFooter].filter(Boolean);
   const navTargets = [...navLinks.querySelectorAll('a[href^="#"]')]
@@ -364,6 +460,13 @@
 
   function updateScrollFx() {
     nav.classList.toggle("is-scrolled", window.scrollY > 40);
+
+    const scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const progress = Math.min(1, Math.max(0, window.scrollY / scrollable));
+    if (scrollProgress) scrollProgress.style.transform = `scaleX(${progress})`;
+    if (!reduceMotion) {
+      document.documentElement.style.setProperty("--hero-shift", `${Math.min(22, window.scrollY * 0.025)}px`);
+    }
 
     const marker = window.scrollY + window.innerHeight * 0.36;
     let active = navTargets[0];
