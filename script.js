@@ -366,7 +366,7 @@
   const workSection = document.getElementById("work");
   const workViewport = workSection?.querySelector(".work__viewport");
   const shelfCursor = document.getElementById("shelfCursor");
-  const shelfQuery = window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
+  const shelfQuery = window.matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
 
   if (workSection && workViewport && shelfCursor) {
     let shelfStart = 0;
