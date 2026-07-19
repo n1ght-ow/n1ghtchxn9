@@ -54,7 +54,7 @@
 @media (max-width:720px){.nav__backdrop.is-open{background:rgba(93,118,157,.08)}}
 
 /* kinetic image shelf */
-@media (min-width:900px) and (prefers-reduced-motion:no-preference){
+@media (min-width:768px){
   .work{--shelf-progress:0;--shelf-x:0px;position:relative;height:var(--shelf-height,auto);padding:0;background:#fbfcfe;overflow:visible}
   .work__pin{position:sticky;top:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:clamp(16px,2vh,26px);height:100svh;padding:clamp(100px,11vh,132px) 0 26px;overflow:hidden;isolation:isolate}
   .work__pin::before{content:"COLLECTED FRAMES";position:absolute;z-index:-1;right:-3vw;top:7vh;color:rgba(93,118,157,.055);font:650 clamp(6rem,13vw,13rem)/.8 var(--display);letter-spacing:-.08em;white-space:nowrap;transform:translate3d(calc(var(--shelf-progress) * -7vw),0,0);pointer-events:none}
@@ -75,12 +75,12 @@
 }
 @media (max-width:900px){.work{height:auto!important}.work__pin{position:relative}.work__viewport{position:relative}.work__cursor{display:none}.work__progress{display:none}.work__hint{display:none}}
 .work__cursor,.work__progress,.work__hint{display:none}
-@media (min-width:900px) and (prefers-reduced-motion:no-preference){.work__cursor{display:grid}.work__progress{display:block}.work__hint{display:flex}.work__viewport{cursor:default}.work__viewport .card{cursor:none}}
-@media (min-width:900px) and (prefers-reduced-motion:no-preference){.work .section-title{max-width:12ch;white-space:nowrap}}
+@media (min-width:768px){.work__cursor{display:grid}.work__progress{display:block}.work__hint{display:flex}.work__viewport{cursor:default}.work__viewport .card{cursor:none}}
+@media (min-width:768px){.work .section-title{max-width:12ch;white-space:nowrap}}
  .work .section-title em{-webkit-text-stroke-color:var(--blue-ink)}
 @media (max-width:1023px){.work .section-title{white-space:normal}}
 @media (max-width:1023px){.filter{min-height:44px;display:inline-flex;align-items:center}.card__cat{font-size:.68rem}}
-@media (min-width:900px) and (prefers-reduced-motion:no-preference){
+@media (min-width:768px){
   .work:not(.is-kinetic){height:auto!important;padding:var(--section) var(--pad) 90px;overflow:visible}
   .work:not(.is-kinetic) .work__pin{position:relative;display:block;height:auto;padding:0;overflow:visible}
   .work:not(.is-kinetic) .work__head{display:flex;align-items:flex-end;max-width:var(--max);margin:0 auto 70px;padding:0}

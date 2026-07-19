@@ -366,7 +366,7 @@
   const workSection = document.getElementById("work");
   const workViewport = workSection?.querySelector(".work__viewport");
   const shelfCursor = document.getElementById("shelfCursor");
-  const shelfQuery = window.matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
+  const shelfQuery = window.matchMedia("(min-width: 768px)");
 
   if (workSection && workViewport && shelfCursor) {
     let shelfStart = 0;
@@ -384,7 +384,7 @@
     const visibleShelfCards = () => built.filter((card) => !card.classList.contains("is-hidden"));
 
     const renderShelf = () => {
-      shelfCurrent += (shelfTarget - shelfCurrent) * 0.14;
+      shelfCurrent += (shelfTarget - shelfCurrent) * (reduceMotion ? 1 : 0.14);
       if (shelfTarget < 0.002) shelfCurrent = 0;
       if (shelfTarget > 0.998) shelfCurrent = 1;
       const x = -shelfTravel * shelfCurrent;
