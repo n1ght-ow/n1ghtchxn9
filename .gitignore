@@ -6,5 +6,9 @@ desktop.ini
 .claude/
 *.log
 
+# local browser QA artifacts
+.playwright-cli/
+output/
+
 # dependencies (none right now, but just in case)
 node_modules/

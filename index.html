@@ -1,277 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The personal website of N1GHT CHXN9: photography, visual experiments, favorite game worlds, and ways to connect." />
-  <meta name="author" content="N1GHT CHXN9" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#0b0d0c" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:site_name" content="N1GHT CHXN9" />
-  <meta property="og:title" content="N1GHT CHXN9 · Personal Website" />
-  <meta property="og:description" content="Photography, visual experiments, game worlds, and the things N1GHT CHXN9 keeps returning to." />
-  <meta property="og:url" content="https://n1ght-ow.github.io/n1ghtchxn9/" />
-  <meta property="og:image" content="https://n1ght-ow.github.io/n1ghtchxn9/photos/web/SAVE_20260616_234423-display.jpg" />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="2000" />
-  <meta property="og:image:height" content="1333" />
-  <meta property="og:image:alt" content="Distant mountains and clouds photographed by N1GHT CHXN9" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@n1ghtchxn9" />
-  <meta name="twitter:title" content="N1GHT CHXN9 · Personal Website" />
-  <meta name="twitter:description" content="Photography, visual experiments, favorite game worlds, and ways to connect." />
-  <meta name="twitter:image" content="https://n1ght-ow.github.io/n1ghtchxn9/photos/web/SAVE_20260616_234423-display.jpg" />
-  <title>N1GHT CHXN9 · Personal Website</title>
-  <link rel="canonical" href="https://n1ght-ow.github.io/n1ghtchxn9/" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="preload" as="font" href="fonts/Syne-Variable.ttf" type="font/ttf" crossorigin />
-  <link rel="preload" as="font" href="fonts/SpaceGrotesk-Variable.ttf" type="font/ttf" crossorigin />
-  <link
-    rel="preload"
-    as="image"
-    href="photos/web/SAVE_20260616_234423-thumb.jpg"
-    imagesrcset="photos/web/SAVE_20260616_234423-thumb.jpg 1400w, photos/web/SAVE_20260616_234423-display.jpg 2000w"
-    imagesizes="(max-width: 860px) 100vw, 60vw"
-    fetchpriority="high"
-  />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="N1GHT CHXN9 — a personal collection of photographs, game worlds, and small things worth keeping.">
+  <meta name="author" content="N1GHT CHXN9">
+  <meta name="theme-color" content="#f5f7fa">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="N1GHT CHXN9 — Personal collection">
+  <meta property="og:description" content="Photographs, game worlds, and small things worth keeping.">
+  <meta property="og:image" content="photos/web/SAVE_20260616_234423-display.jpg">
+  <title>N1GHT CHXN9 — Personal collection</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="font" href="fonts/Syne-Variable.ttf" type="font/ttf" crossorigin>
+  <link rel="preload" as="font" href="fonts/SpaceGrotesk-Variable.ttf" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "N1GHT CHXN9",
-      "url": "https://n1ght-ow.github.io/n1ghtchxn9/",
-      "image": "https://n1ght-ow.github.io/n1ghtchxn9/photos/web/SAVE_20260616_234423-display.jpg",
-      "description": "Photographer, gamer, and digital visual maker.",
-      "sameAs": [
-        "https://x.com/n1ghtchxn9",
-        "https://www.instagram.com/n1ght1121/"
-      ],
-      "knowsAbout": ["Photography", "Digital art", "Video games", "Visual culture"]
-    }
+    {"@context":"https://schema.org","@type":"Person","name":"N1GHT CHXN9","description":"A personal collection of photographs, game worlds, and visual notes."}
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main-content">Skip to collection</a>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <header class="nav" id="nav">
-    <a href="#home" class="nav__brand" aria-label="N1GHT CHXN9 home">
-      <span class="nav__brand-mark">N1</span><span>GHT CHXN9</span><span class="nav__brand-dot" aria-hidden="true"></span>
-    </a>
-    <button class="nav__burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span>
-    </button>
-    <nav class="nav__links" id="navLinks" aria-label="Primary">
-      <a href="#home" data-index="00" aria-current="location">Home</a>
-      <a href="#about" data-index="01">About</a>
-      <a href="#work" data-index="02">Photography</a>
-      <a href="#games" data-index="03">Games</a>
-      <a href="#contact" data-index="04">Contact</a>
+    <a class="nav__brand" href="#home" aria-label="N1GHT CHXN9 collection home"><span class="nav__brand-mark">N1</span><span>GHT CHXN9</span><span class="nav__brand-dot" aria-hidden="true"></span></a>
+    <div class="nav__meta">PRIVATE COLLECTION <span>/</span> 2026</div>
+    <button class="nav__burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+    <nav class="nav__links" id="navLinks" aria-label="Collection navigation">
+      <a href="#home" data-index="00" aria-current="location">Entry</a>
+      <a href="#about" data-index="01">Principles</a>
+      <a href="#work" data-index="02">Images</a>
+      <a href="#games" data-index="03">Worlds</a>
+      <a href="#contact" data-index="04">Notebook</a>
     </nav>
     <button class="nav__backdrop" id="menuBackdrop" type="button" tabindex="-1" aria-hidden="true"></button>
   </header>
 
   <main id="main-content" tabindex="-1">
     <section class="hero" id="home" aria-labelledby="heroTitle">
-      <div class="hero__media">
-        <img
-          src="photos/web/SAVE_20260616_234423-thumb.jpg"
-          srcset="photos/web/SAVE_20260616_234423-thumb.jpg 1400w, photos/web/SAVE_20260616_234423-display.jpg 2000w"
-          sizes="(max-width: 860px) 100vw, 60vw"
-          width="2000"
-          height="1333"
-          alt="Distant grassland beneath a large bank of white clouds"
-          decoding="async"
-          fetchpriority="high"
-        />
-        <div class="hero__media-caption" aria-hidden="true">
-          <span>Cloud study, 2026</span>
-          <span>43° N / field note 011</span>
-        </div>
-      </div>
-
+      <div class="hero__wash" aria-hidden="true"></div>
       <div class="hero__copy">
-        <div class="hero__label reveal">
-          <span class="status-dot" aria-hidden="true"></span>
-          Personal archive · Edition 2026
-        </div>
-        <h1 class="hero__title reveal" id="heroTitle">
-          <span class="line">N1GHT</span>
-          <span class="line line--accent">CHXN9</span>
-        </h1>
-        <p class="hero__sub reveal">
-          Photographs, visual experiments, and the game worlds that keep
-          following me home.
-        </p>
-        <div class="hero__cta reveal">
-          <a href="#work" class="btn btn--primary">Enter the archive <i aria-hidden="true">↘</i></a>
-          <a href="#about" class="btn btn--ghost">Meet the observer</a>
-        </div>
+        <div class="hero__label reveal"><span class="status-dot" aria-hidden="true"></span>Personal collection &middot; open-ended &middot; 2026</div>
+        <h1 class="hero__title reveal" id="heroTitle"><span class="line">I keep</span><span class="line line--accent">what stays.</span></h1>
+        <p class="hero__sub reveal">Not a portfolio. A room for the images, worlds, and little details I could not leave behind.</p>
+        <div class="hero__cta reveal"><a href="#work" class="btn btn--primary">Open the shelves <i aria-hidden="true">&#8599;</i></a><a href="#about" class="btn btn--ghost">Read the index <i aria-hidden="true">&#8595;</i></a></div>
       </div>
-
-      <div class="hero__foot reveal" aria-label="Portfolio overview">
-        <div><span>Practice</span><strong>Photography / Visuals</strong></div>
-        <div><span>Second archive</span><strong>Game worlds</strong></div>
-        <div><span>Always</span><strong>Collecting atmosphere</strong></div>
-      </div>
-      <a class="hero__scroll" href="#about" aria-label="Scroll to about section">
-        <span>Scroll to explore</span><i aria-hidden="true">↓</i>
-      </a>
+      <figure class="hero__media reveal">
+        <div class="hero__media-image"><img src="photos/web/SAVE_20260616_234423-display.jpg" alt="A wide grassland beneath a luminous bank of clouds" width="2000" height="1333" fetchpriority="high"><span class="hero__media-stamp">COLL. 001</span></div>
+        <div class="hero__mini-grid" aria-hidden="true"><img src="photos/web/1779456446248-small.jpg" alt=""><img src="photos/web/1779456446198-small.jpg" alt=""></div>
+        <figcaption class="hero__media-caption"><span>Cloud study / saved 2026</span><span>01 of 11</span></figcaption>
+      </figure>
+      <div class="hero__foot reveal"><span><small>ON THE SHELF</small><strong>11 photographs</strong></span><span><small>IN THE OTHER ROOM</small><strong>07 game worlds</strong></span><span><small>THE RULE</small><strong>Keep the feeling</strong></span></div>
+      <a class="hero__scroll" href="#about" aria-label="Scroll to collection principles"><span>Enter the collection</span><i aria-hidden="true">&#8595;</i></a>
     </section>
 
     <section class="about" id="about" aria-labelledby="aboutTitle">
       <div class="about__grid">
-        <figure class="about__media reveal">
-          <div class="about__frame">
-            <img
-              src="photos/web/1779456446198-thumb.jpg"
-              srcset="photos/web/1779456446198-thumb.jpg 1400w, photos/web/1779456446198-display.jpg 2000w"
-              sizes="(max-width: 860px) calc(100vw - 40px), 38vw"
-              width="2000"
-              height="1333"
-              alt="Tree shadows in monochrome"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="about__image-index" aria-hidden="true">A / 01</span>
-          </div>
-          <figcaption><span>Tree study</span><span>Black / white / stillness</span></figcaption>
-        </figure>
-
-        <div class="about__text">
-          <span class="section-tag reveal"><b>01</b> About the observer</span>
-          <h2 class="about__lead reveal" id="aboutTitle">
-            I collect the moments that refuse to <em>fade.</em>
-          </h2>
-          <p class="about__quote reveal">
-            “Some images document a place. The ones I keep document how it felt.”
-          </p>
-          <div class="about__body">
-            <p class="reveal">
-              I’m N1GHT CHXN9. I photograph quiet landscapes, changing skies, and
-              small flashes of light—then edit them closer to memory than documentation.
-            </p>
-            <p class="reveal">
-              Away from the camera, I wander through game worlds and digital culture.
-              This site is where those threads meet: an evolving record of what I
-              notice, make, and return to.
-            </p>
-          </div>
-          <dl class="about__meta reveal">
-            <div><dt>Practice</dt><dd>Photography &amp; digital experiments</dd></div>
-            <div><dt>Drawn to</dt><dd>Light, atmosphere &amp; imagined worlds</dd></div>
-            <div><dt>Archive</dt><dd>Personal / selective / ongoing</dd></div>
-          </dl>
-        </div>
+        <figure class="about__media reveal"><div class="about__frame"><img src="photos/web/1779456446198-display.jpg" alt="Bare branches casting shadows in monochrome" width="2000" height="1333" loading="lazy"><span class="about__image-index">NOTE / 01</span><span class="about__frame-line" aria-hidden="true"></span></div><figcaption><span>Tree study</span><span>Collected because it felt quiet</span></figcaption></figure>
+        <div class="about__text"><span class="section-tag reveal"><b>01</b> Collection principles</span><h2 class="about__lead reveal" id="aboutTitle">A personal collection is a map of what I <em>notice.</em></h2><p class="about__quote reveal">&ldquo;I am less interested in owning an image than in giving a feeling somewhere to live.&rdquo;</p><div class="about__body"><p class="reveal">I&rsquo;m N1GHT CHXN9. I collect photographs of weather, branches, roads, and the sudden colour of an ordinary day. I keep the ones that change the temperature of a room.</p><p class="reveal">The collection also has a digital shelf: games with places I remember, systems I can&rsquo;t stop thinking about, and stories that followed me home.</p></div><dl class="about__meta reveal"><div><dt>01 / Look for</dt><dd>Light with a little tension in it</dd></div><div><dt>02 / Keep for</dt><dd>The feeling after the obvious moment</dd></div><div><dt>03 / Add when</dt><dd>I return to it without being asked</dd></div></dl></div>
       </div>
     </section>
 
     <section class="work" id="work" aria-labelledby="workTitle">
-      <div class="work__head">
-        <div class="work__title-group">
-          <span class="section-tag reveal"><b>02</b> Selected photography</span>
-          <h2 class="section-title reveal" id="workTitle">Light, held a little <em>longer.</em></h2>
-          <p class="work__intro reveal">
-            Landscapes, branches, flowers, and sky—edited toward the feeling I remember.
-          </p>
-        </div>
-        <div class="work__controls">
-          <p class="work__count reveal"><strong>11</strong> frames · <strong>02</strong> studies</p>
-          <div class="filters reveal" id="filters" role="group" aria-label="Filter photographs by subject" aria-controls="gallery">
-            <button class="filter is-active" type="button" data-filter="all">All 11</button>
-            <button class="filter" type="button" data-filter="botanical">Botanical 07</button>
-            <button class="filter" type="button" data-filter="open-sky">Open sky 04</button>
-          </div>
-        </div>
-      </div>
-      <p class="sr-only" id="photoFilterStatus" role="status" aria-live="polite"></p>
-      <div class="gallery" id="gallery"><!-- injected by script.js --></div>
-      <div class="work__foot reveal" aria-hidden="true">
-        <span>Quiet places / fleeting light</span>
-        <span>Personal archive · 2026</span>
+      <div class="work__pin">
+        <div class="work__head"><div class="work__title-group"><span class="section-tag reveal"><b>02</b> Collected frames</span><h2 class="section-title reveal" id="workTitle">Frames I <em>kept.</em></h2><p class="work__intro reveal">Eleven photographs. No timeline &mdash; only what stayed.</p></div><div class="work__controls"><p class="work__count reveal"><strong>11</strong> frames <span>/</span> <strong>02</strong> studies</p><div class="filters reveal" id="filters" role="group" aria-label="Filter frames by subject" aria-controls="gallery"><button class="filter is-active" type="button" data-filter="all">All <span>11</span></button><button class="filter" type="button" data-filter="botanical">Flora <span>07</span></button><button class="filter" type="button" data-filter="open-sky">Weather <span>04</span></button></div></div></div>
+        <p class="sr-only" id="photoFilterStatus" role="status" aria-live="polite"></p><p class="sr-only" id="shelfInstruction">On desktop, continue scrolling to move through the frames. Each frame remains a button.</p>
+        <div class="work__viewport" role="region" aria-label="Collected frames" aria-describedby="shelfInstruction"><div class="gallery" id="gallery"></div><div class="work__cursor" id="shelfCursor" aria-hidden="true"><span>OPEN</span><i>&#8599;</i></div></div>
+        <div class="work__foot"><span>Arranged by feeling, not date</span><div class="work__progress" aria-hidden="true"><i id="shelfProgress"></i></div><span class="work__hint">Scroll to move the shelf <b>&rarr;</b></span><a class="shelf-skip" href="#games">Skip image shelf</a></div>
       </div>
     </section>
 
-    <section class="games" id="games" aria-labelledby="gamesTitle">
-      <div class="games__head">
-        <div>
-          <span class="section-tag reveal"><b>03</b> Game worlds</span>
-          <h2 class="section-title reveal" id="gamesTitle">Worlds I never really <em>left.</em></h2>
-        </div>
-        <p class="games__intro reveal">
-          Games are another way I collect atmosphere, places, and stories.
-          These are the ones that stayed after the credits.
-        </p>
-      </div>
-      <div class="games__toolbar">
-        <div class="games__filters reveal" id="gamesFilters" role="group" aria-label="Filter games by genre" aria-controls="gamesGrid">
-          <button class="filter is-active" type="button" data-filter="all">All 07</button>
-          <button class="filter" type="button" data-filter="story">Story worlds 04</button>
-          <button class="filter" type="button" data-filter="systems">Systems 02</button>
-          <button class="filter" type="button" data-filter="motion">Motion 01</button>
-        </div>
-        <span class="games__note reveal">A subjective catalogue</span>
-      </div>
-      <p class="sr-only" id="gamesFilterStatus" role="status" aria-live="polite"></p>
-      <div class="games-grid" id="gamesGrid"><!-- injected by script.js --></div>
-    </section>
+    <section class="games" id="games" aria-labelledby="gamesTitle"><div class="games__head"><div><span class="section-tag reveal"><b>03</b> Digital shelf</span><h2 class="section-title reveal" id="gamesTitle">Worlds I still carry <em>around.</em></h2></div><p class="games__intro reveal">A game can be a place, a habit, or a sentence you keep finishing in your head. These are the ones that made it into my collection.</p></div><div class="games__toolbar"><div class="games__filters reveal" id="gamesFilters" role="group" aria-label="Filter the digital shelf" aria-controls="gamesGrid"><button class="filter is-active" type="button" data-filter="all">Everything <span>07</span></button><button class="filter" type="button" data-filter="story">Stories <span>04</span></button><button class="filter" type="button" data-filter="systems">Systems <span>02</span></button><button class="filter" type="button" data-filter="motion">Motion <span>01</span></button></div><span class="games__note reveal">Filed under: still thinking about it</span></div><p class="sr-only" id="gamesFilterStatus" role="status" aria-live="polite"></p><div class="games-grid" id="gamesGrid"></div></section>
 
-    <section class="contact" id="contact" aria-labelledby="contactTitle">
-      <div class="signal-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-      <div class="contact__inner">
-        <div class="contact__top reveal">
-          <span class="section-tag"><b>04</b> Open channel</span>
-          <span class="contact__availability"><i aria-hidden="true"></i> Available for thoughtful projects</span>
-        </div>
-        <h2 class="contact__title reveal" id="contactTitle">
-          <span class="line">Send a</span>
-          <span class="line line--accent">signal.</span>
-        </h2>
-        <p class="contact__intro reveal">
-          For photography, visual collaborations, game conversations, or simply
-          to say hello—my inbox is open.
-        </p>
-        <div class="contact__actions reveal">
-          <a href="mailto:n1ghtchxn9@gmail.com" class="contact__mail">n1ghtchxn9@gmail.com <i aria-hidden="true">↗</i></a>
-          <button class="contact__copy" id="copyEmail" type="button" data-email="n1ghtchxn9@gmail.com">Copy email</button>
-        </div>
-        <span class="sr-only" id="copyStatus" role="status" aria-live="polite"></span>
-        <div class="contact__socials reveal">
-          <span>Elsewhere</span>
-          <a href="https://x.com/n1ghtchxn9" target="_blank" rel="noopener noreferrer" aria-label="N1GHT CHXN9 on X">X <i aria-hidden="true">↗</i></a>
-          <a href="https://www.instagram.com/n1ght1121/" target="_blank" rel="noopener noreferrer" aria-label="N1GHT CHXN9 on Instagram">Instagram <i aria-hidden="true">↗</i></a>
-        </div>
-      </div>
-    </section>
+    <section class="contact" id="contact" aria-labelledby="contactTitle"><div class="contact__inner"><div class="contact__top reveal"><span class="section-tag"><b>04</b> Last page, for now</span><span class="contact__availability"><i aria-hidden="true"></i> The collection is still growing</span></div><h2 class="contact__title reveal" id="contactTitle"><span class="line">Leave a</span><span class="line line--accent">note.</span></h2><p class="contact__intro reveal">If something here reminds you of something you keep, send it my way. New additions, references, and gentle arguments are always welcome.</p><div class="contact__actions reveal"><a href="mailto:n1ghtchxn9@gmail.com" class="contact__mail">n1ghtchxn9@gmail.com <i aria-hidden="true">&#8599;</i></a><button class="contact__copy" id="copyEmail" type="button" data-email="n1ghtchxn9@gmail.com">Copy address</button></div><span class="sr-only" id="copyStatus" role="status" aria-live="polite"></span><div class="contact__archive-strip reveal"><span>SHELVES OPEN</span><span>11 IMAGES</span><span>07 WORLDS</span><span>2026 &rarr;</span></div></div></section>
   </main>
+  <footer class="footer"><span>&copy; <span id="year"></span> N1GHT CHXN9</span><span>A collection, not a conclusion</span><a href="#home">Return to entry &#8593;</a></footer>
 
-  <footer class="footer">
-    <span>© <span id="year"></span> N1GHT CHXN9</span>
-    <span>Photography, game worlds &amp; everything between</span>
-    <a href="#home">Back to top <i aria-hidden="true">↑</i></a>
-  </footer>
-
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lbTitle">
-    <button class="lightbox__close" id="lbClose" type="button" aria-label="Close image">×</button>
-    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Previous image">←</button>
-    <div class="lightbox__stage">
-      <img id="lbImg" alt="" />
-      <div class="lightbox__meta">
-        <div>
-          <h3 id="lbTitle"></h3>
-          <p id="lbCat"></p>
-        </div>
-        <button class="lightbox__original" id="lbOriginal" type="button">View original</button>
-      </div>
-    </div>
-    <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Next image">→</button>
-    <div class="lightbox__count" id="lbCount"></div>
-  </div>
-
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lbTitle"><button class="lightbox__close" id="lbClose" type="button" aria-label="Close image">&times;</button><button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Previous image">&#8592;</button><div class="lightbox__stage"><img id="lbImg" alt=""><div class="lightbox__meta"><div><h3 id="lbTitle"></h3><p id="lbCat"></p></div><button class="lightbox__original" id="lbOriginal" type="button">View original</button></div></div><button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Next image">&#8594;</button><div class="lightbox__count" id="lbCount"></div></div>
   <script src="script.js"></script>
 </body>
 </html>

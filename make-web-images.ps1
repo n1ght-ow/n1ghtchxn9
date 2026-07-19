@@ -2,6 +2,7 @@
 # Generate web-display copies of every photo in /photos:
 #   {name}-display.jpg  (long edge 2000px)  -> used by the lightbox
 #   {name}-thumb.jpg    (long edge 1400px)  -> used by the gallery cards
+#   {name}-small.jpg    (long edge  800px)  -> phones and smaller cards
 # The originals stay untouched and are only loaded on "查看原图".
 #
 # Zero external dependencies: uses .NET GDI+, built into Windows PowerShell 5.1.
@@ -15,6 +16,7 @@ param(
   [string]$Out     = "photos/web",
   [int]   $Display = 2000,
   [int]   $Thumb   = 1400,
+  [int]   $Small   = 800,
   [int]   $Quality = 85,
   [switch]$Force
 )
@@ -60,7 +62,8 @@ foreach ($p in $photos) {
   $base = [System.IO.Path]::GetFileNameWithoutExtension($p.Name)
   $targets = @(
     @{ path = (Join-Path $outDir "$base-display.jpg"); edge = $Display },
-    @{ path = (Join-Path $outDir "$base-thumb.jpg");   edge = $Thumb   }
+    @{ path = (Join-Path $outDir "$base-thumb.jpg");   edge = $Thumb   },
+    @{ path = (Join-Path $outDir "$base-small.jpg");   edge = $Small   }
   )
   foreach ($t in $targets) {
     if ((Test-Path $t.path) -and -not $Force) { $skipped++; continue }
